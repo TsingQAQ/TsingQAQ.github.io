@@ -83,9 +83,9 @@ author:
   # 这个是个人照片
   avatar           : "profile.png"
   bio              : "Your biography for the left-hand sidebar"
-  location         : "Location"
+  location         : "Xian Shannxi P.R China"
   employer         :
-  googlescholar    : "http://yourfullgooglescholarurl.com"  # 待编辑
+  googlescholar    : 
   email            :
   uri              :
   bitbucket        :
@@ -94,7 +94,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "https://github.com/TsingQAQ"
+  github           : https://github.com/TsingQAQ
   google_plus      :
   keybase          :
   instagram        :
@@ -103,7 +103,7 @@ author:
   orcid            : 
   pinterest        :
   soundcloud       :
-  stackoverflow    : # http://stackoverflow.com/users/123456/username
+  stackoverflow    : https://stackoverflow.com/users/6813899/will
   steam            :
   tumblr           :
   twitter          : 
