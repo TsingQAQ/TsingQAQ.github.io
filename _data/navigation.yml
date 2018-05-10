@@ -2,21 +2,25 @@
 main:
   - title: "Publications"
     url: /publications/
-
-  - title: "Talks"
-    url: /talks/    
-
-  - title: "Teaching"
-    url: /teaching/    
     
-  - title: "Portfolio"
-    url: /portfolio/
-        
+  - title: "Projects"
+    url: /projects/
+  
   - title: "Blog Posts"
-    url: /year-archive/
+    url: /year-archive/ 
     
-  - title: "CV"
-    url: /cv/
+  # 2018/5/10 commented out
+  # - title: "Talks"
+  #   url: /talks/    
+  
+  # - title: "Teaching"
+  #   url: /teaching/    
+  #   
+  # - title: "Portfolio"
+  #   url: /portfolio/
+  
+  # - title: "CV"
+  #   url: /cv/
     
-  - title: "Guide"
-    url: /markdown/
+  # - title: "Guide"
+  #   url: /markdown/
