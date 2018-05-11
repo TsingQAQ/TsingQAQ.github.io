@@ -79,10 +79,10 @@ analytics:
 # Site Author
 # 侧边栏编辑
 author:
-  name             : "Your Sidebar Name"
+  name             : ""
   # 这个是个人照片
-  avatar           : "profile.png"
-  bio              : "Your biography for the left-hand sidebar"
+  avatar           : "FYI_personal.jpg"
+  bio              : 
   location         : "Xian Shannxi P.R China"
   employer         :
   googlescholar    : 
