@@ -181,6 +181,10 @@ collections:
   # portfolio:
   #   output: true
   #   permalink: /:collection/:path/
+  # 2018/5/11 新增
+  projects:
+    output: true
+    permalink: /:collection/:path/
   talks:
     output: true
     permalink: /:collection/:path/
@@ -219,6 +223,16 @@ defaults:
   - scope:
       path: ""
       type: publications
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comments: true
+  # 2018/5/11 新增
+  # _projects
+  - scope:
+      path: ""
+      type: projetcs
     values:
       layout: single
       author_profile: true
