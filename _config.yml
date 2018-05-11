@@ -81,7 +81,7 @@ analytics:
 author:
   name             : ""
   # 这个是个人照片
-  avatar           : "bio-photo-2"
+  avatar           : "500x300.png"
   bio              : 
   location         : "Xian Shannxi P.R China"
   employer         :
