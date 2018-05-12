@@ -14,6 +14,11 @@ School of aeronautics
 **Email** tsingjixiang@yahoo.com  
 **Address** 127 West Youyi Road, Beilin District, Xi'an Shaanxi, 710072, P.R.China.
 
+Blingbling
+======
+This page is underconstruction...
+Feel free to contact me by email if you have any questions :)
+
 Biography
 ======
 I am a second year postgraduate student in School Of Aeronautics at Northwestern Polytechnical University, major in Flight Vehible Design advised by Prof.Yu Hu.
