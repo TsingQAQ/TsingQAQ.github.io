@@ -77,11 +77,9 @@ analytics:
 
 
 # Site Author
-# 侧边栏编辑
 author:
   name             : ""
-  # 这个是个人照片
-  avatar           : "FYI_personal.png"
+  avatar           : "FYI_personal.png"  # 这个是个人照片
   bio              : "Move to the unknown"
   location         : "Xian Shannxi P.R China"
   employer         :
