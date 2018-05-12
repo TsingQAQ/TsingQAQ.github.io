@@ -28,7 +28,7 @@ I will apply for Ph.D next year and I am interested in aerodynamic optimization 
 Honors&Awards
 ======
 The 3rd Postgraduate Future Aircraft Vehicle Design Competition Second Prize  
-Airbus ‘Fly Your Ideas’ global university students aerospace innovation competition Finalists 2015 
+Airbus ‘Fly Your Ideas’ global university students aerospace innovation competition Finalists 2015  
 The 9th 'Innovation Cup' National Future Aircraft Designing Contest Third Prize  
 The '611 Cup' Future Aircraft Designing Contest Meritorious Second Prize in Amateur Division  
 The NUAA ‘Fei Bao’ Cup Aerospace knowledge tournament Runner-up, Best  
