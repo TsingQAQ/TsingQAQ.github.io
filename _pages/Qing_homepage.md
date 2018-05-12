@@ -39,7 +39,6 @@ The NPU dubbing contest Second prize
 The NPU ‘The road to chief Engineer’ flight Model assemble competition First prize  
 A patent for utility model (CN 203319366 U)  
 Merit Student of school of Aeronautical  
-Merit Student of school of Aeronautical  
 Candidate Merit Student of NPU  
 
 
