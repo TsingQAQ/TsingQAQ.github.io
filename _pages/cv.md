@@ -9,51 +9,56 @@ redirect_from:
 
 {% include base_path %}
 
+# Qing Jixiang
+
 Education
 ======
-* B.S. in Github, Github University, 2012
-* M.S. in Jekyll, Github University, 2014
-* Ph.D in Version Control Theory, Github University, 2018 (expected)
+* 2016-Present  M.S. in Northwestern Polytechnical University,  
+  * GPA 3.33/4.0  
+  * Research Interests: Ducted Fans, Aerodynamic Optimization(optimization algorithm, framework construction)  
+  * The Second Prize Scholarshiip(2016-2017)  
+*  2012-2016  B.S. in Northwestern Polytechnical University,  
+  * GPA To be calculated/4.0
+  * Undergraduate dissertation: Design of double-duct VTOL flight vehicle  
+  * The First Prize Scholarship(2014-2015), The Second Prize Sholarship(2012-2014), Elected as the Candidate of Merit Student of NPU special admission  
 
-Work experience
+
+Relative Research
 ======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+Integrated Rotor-Duct Optimization of duct system  
+Aircraft Design for AIAA Design•Build•Fly Competition  
+Design Optimization of a relaxed-stability flying-wing
   
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Programming
+  * Python(familiar, 2 years+ experience on scientific computation, object-oriented programming, matplotlib etc)  
+  * MATLAB(familiar)
+  * Github, Bitbucket, SourceTree
+* CFD
+  * preprocessor  
+    * ANSYS ICEM, PointWise
+  * solver
+    * ANSYS Fluent, SU2(learning)
+  * postproess  
+    * Tecplot
+* CAD
+  * CATIA, SolidWorks
+  * PythonOCC
 
 Publications
 ======
-  <ul>{% for post in site.publications %}
+  To be completed
+  <ul>{% for post in site.publications %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
   
-Talks
+Languages
 ======
-  <ul>{% for post in site.talks %}
-    {% include archive-single-talk-cv.html %}
-  {% endfor %}</ul>
-  
-Teaching
+  * Chinese(native)
+  * English(preparing for IELTS)
+
+MISCELLANEOUS 
 ======
-  <ul>{% for post in site.teaching %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+* Interests: Piano(I got the certificate of test of piano Lv.10)
+
