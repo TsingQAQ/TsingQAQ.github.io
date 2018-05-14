@@ -11,7 +11,7 @@ redirect_from:
 
 Education
 ======
-* 2016-Present  M.S. in Northwestern Polytechnical University,  
+* 2016-Present  Candidate M.S. in Northwestern Polytechnical University,  
   * GPA 3.33/4.0  
   * Research Interests: Ducted Fans, Aerodynamic Optimization(optimization algorithm, framework construction)  
   * The Second Prize Scholarshiip(2016-2017)  
