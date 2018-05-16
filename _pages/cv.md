@@ -6,9 +6,8 @@ author_profile: true
 redirect_from:
   - /resume
 ---
-
-{% include base_path %}
-
+{% include base_path %}  
+A PDF format can be found [here](to be added soon).  
 Education
 ======
 * 2016-Present  Candidate M.S. in Northwestern Polytechnical University,  
@@ -35,15 +34,12 @@ Skills
   * MATLAB(familiar)
   * Github, Bitbucket, SourceTree
 * CFD
-  * preprocessor  
     * ANSYS ICEM, PointWise
-  * solver
     * ANSYS Fluent, SU2(learning)
-  * postproess  
     * Tecplot
 * CAD
   * CATIA, SolidWorks
-  * PythonOCC
+  * [PythonOCC](https://github.com/tpaviot/pythonocc-core)
 
 Publications
 ======
