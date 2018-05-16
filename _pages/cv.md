@@ -7,7 +7,9 @@ redirect_from:
   - /resume
 ---
 {% include base_path %}  
+
 A PDF format can be found [here](to be added soon).  
+
 Education
 ======
 * 2016-Present  Candidate M.S. in Northwestern Polytechnical University,  
