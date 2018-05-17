@@ -18,7 +18,7 @@ Education
   * The Second Prize Scholarshiip(2016-2017)  
   
 *  2012-2016  B.S. in Northwestern Polytechnical University,  
-    * GPA To be calculated/4.0  
+    * GPA 3.17/4.0  
     * Undergraduate dissertation: Design of double-duct VTOL flight vehicle  
     * The First Prize Scholarship(2014-2015), The Second Prize Sholarship(2012-2014), Elected as the Candidate of Merit Student of NPU special admission  
 
@@ -40,23 +40,40 @@ Skills
     * ANSYS Fluent, SU2(learning)
     * Tecplot
 * CAD
-  * CATIA, SolidWorks
-  * [PythonOCC](https://github.com/tpaviot/pythonocc-core)
+  * CATIA, SolidWorks  
+  * [PythonOCC](https://github.com/tpaviot/pythonocc-core)
 
 Publications
 ======
   To be completed  
-  
-  <ul>{% for post in site.publications %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Languages
+
+Honors&Awards
 ======
+
+* The 3rd Postgraduate Future Aircraft Vehicle Design Competition Second Prize   
+* Airbus ‘Fly Your Ideas’ global university students aerospace innovation competition Finalists 2015  
+* The 9th 'Innovation Cup' National Future Aircraft Designing Contest Third Prize  
+* The '611 Cup' Future Aircraft Designing Contest Meritorious Second Prize in Amateur Division  
+* The NUAA ‘Fei Bao’ Cup Aerospace knowledge tournament Runner-up, Best  
+* The NUAA ‘Fei Bao’ Cup Aerospace knowledge tournament Best Practice Award  
+* The NPU outstanding volunteer  
+* The NPU English dubbing contest First prize  
+* The NPU dubbing contest Second prize  
+* The NPU ‘The road to chief Engineer’ flight Model assemble competition First prize  
+* A patent for utility model (CN 203319366 U)  
+* Merit Student of school of Aeronautical  
+* Candidate Merit Student of NPU  
+
+Languages
+====
   * Chinese(native)
   * English(preparing for IELTS)
 
 MISCELLANEOUS 
 ======
+* Certificate of "The Way to Success" Career & Leadership Development Program at NPU  
+* Activities 
+    * The NPU English dubbing contest First prize
+    * The NPU ‘The road to chief Engineer’ flight Model assemble competition First prize 
 * Interests: Piano(I got the certificate of test of piano Lv.10)
 
