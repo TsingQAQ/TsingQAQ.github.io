@@ -21,28 +21,11 @@ Feel free to contact me by email if you have any questions :)
 
 Biography
 ======
-I am a second year postgraduate student in School Of Aeronautics at Northwestern Polytechnical University, major in Flight Vehible Design advised by Prof.Yu Hu.
+I am a second year postgraduate student in school of aeronautics at Northwestern Polytechnical University, major in Flight Vehible Design advised by Prof.Yu Hu.  
+My research primarily involve aerodynamic optimization algorithms and its applications. I'm working with ducted fan projectes and trying to find out the design strategies from an surrogate based optimization approach. I also gained experience on aircraft system design and optimization from matches and projects.  
+I will apply for Ph.D next year and I am interested in optimization algorithms and design & optimization related programs. If you're interested, don’t hesitate to contact me. My information is attached in [CV page](https://tsingqaq.github.io/cv/).
 
-I will apply for Ph.D next year and I am interested in aerodynamic optimization and design programs. If you're interested, don’t hesitate to contact me. My information is attached below and more information is demonstrate at introduction on my projects.
-
-Honors&Awards
-======
-The 3rd Postgraduate Future Aircraft Vehicle Design Competition Second Prize  
-Airbus ‘Fly Your Ideas’ global university students aerospace innovation competition Finalists 2015  
-The 9th 'Innovation Cup' National Future Aircraft Designing Contest Third Prize  
-The '611 Cup' Future Aircraft Designing Contest Meritorious Second Prize in Amateur Division  
-The NUAA ‘Fei Bao’ Cup Aerospace knowledge tournament Runner-up, Best  
-The NUAA ‘Fei Bao’ Cup Aerospace knowledge tournament Best Practice Award  
-The NPU outstanding volunteer  
-The NPU English dubbing contest First prize  
-The NPU dubbing contest Second prize  
-The NPU ‘The road to chief Engineer’ flight Model assemble competition First prize  
-A patent for utility model (CN 203319366 U)  
-Merit Student of school of Aeronautical  
-Candidate Merit Student of NPU  
 
 
 What else
 ------
-
-
