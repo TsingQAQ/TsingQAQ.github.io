@@ -22,7 +22,7 @@ Feel free to contact me by email if you have any questions :)
 Biography
 ======
 I am a second year postgraduate student in school of aeronautics at Northwestern Polytechnical University, major in flight vehible design advised by Prof.Yu Hu.  
-My research primarily involve aerodynamic optimization algorithms and its applications. I'm working with ducted fan projectes and trying to find out the design strategies from an surrogate based optimization approach. I also gained experience on aircraft system design and optimization from matches and projects.  
+Being a lab member of which [made the first successful flight of double ducted fan in China](http://www.miit.gov.cn/n1146290/n1146402/n1146445/c5637908/content.html). My research primarily involve aerodynamic optimization algorithms and its applications. I'm working with ducted fan projectes and trying to find out the design strategies from an surrogate based optimization approach. I also gained experience on aircraft system design and optimization from matches and projects.  
 I will apply for Ph.D next year and I am interested in optimization algorithms and design & optimization related programs. If you're interested, don’t hesitate to contact me. My information is attached in [CV page](https://tsingqaq.github.io/cv/).
 
 
