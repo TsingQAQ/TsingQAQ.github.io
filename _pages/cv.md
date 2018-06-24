@@ -15,4 +15,3 @@ A PDF format can be found [here](https://github.com/TsingQAQ/TsingQAQ.github.io/
         <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/files/CV_Jixiang%20Qing.pdf">Download PDF</a>.</p>
     </embed>
 </object>
-
