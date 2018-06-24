@@ -1,7 +1,7 @@
 ---
 title: Design Optimization of an aircraft for AIAA Deisgn·Build·Fly Competition
 collection: projects
-excerpt: "<br/><img src='/images/AIAA_DBF/P1.png'>"
+excerpt: "<br/><img src='/images/AIAA_DBF/P1.png' width="300" height="600">"
 date: 2018-05-11
 permalink: /projects/AIAA_DBF/
 tags:
