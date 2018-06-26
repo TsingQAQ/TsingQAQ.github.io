@@ -9,6 +9,7 @@ md结构分为两部分
 2. 语言好像是HTML格式
 3. layout 标签和 collection 标签只有在同时设置为，比如projects的时候才会产生影响，我也不知道为什么，任何其中一种没有设置都没有用
    没用的时候不会显示标签栏，只有Markdown内容
+4. 似乎标签的功效还会和标签顺序有关，layout 和 collection放在title之后就没有效果
 -------------- 
 
 下面是Markdown语言格式
