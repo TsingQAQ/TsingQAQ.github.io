@@ -1,4 +1,5 @@
 ---
+layout: archive
 title: Integrated Duct and Rotor geometry Optimization of ducted fan VTOL Aircrafts 
 collection: projects
 date: 2018-05-15
