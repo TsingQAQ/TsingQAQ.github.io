@@ -24,7 +24,7 @@ comments:
     shortname            :
   discourse:
     server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
-  facebook:
+  facebook             
     appid                :
     num_posts            : # 5 (default)
     colorscheme          : # "light" (default), "dark"
@@ -84,13 +84,13 @@ author:
   location         : "Xian Shannxi P.R China"
   employer         :
   googlescholar    : 
-  email            :
+  email            : "tsingjixiang@yahoo.com"
   uri              :
-  bitbucket        :
+  bitbucket        : "https://bitbucket.org/FlyWill/"
   codepen          :
   dribbble         :
   flickr           :
-  facebook         :
+  facebook         : "https://www.facebook.com/will.tsing"
   foursquare       :
   github           : "TsingQAQ"
   google_plus      :
