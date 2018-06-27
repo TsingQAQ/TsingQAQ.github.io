@@ -4,6 +4,7 @@ title: Design Optimization of an aircraft for AIAA Deisgn·Build·Fly Competitio
 collection: projects
 layout: archive-single-talk
 date: 2018-05-11
+author_profile: True
 permalink: /projects/AIAA_DBF/
 ---
 
