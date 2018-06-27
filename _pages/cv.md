@@ -8,5 +8,3 @@ redirect_from:
 ---
 
 <p>A PDF format can be found <a href='https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/files/CV_Jixiang_Qing.pdf'><font color="blue">here</font></a></p>
-
-A PDF format can be found [here](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/files/CV_Jixiang_Qing.pdf). 
