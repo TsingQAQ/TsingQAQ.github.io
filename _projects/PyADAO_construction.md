@@ -4,6 +4,7 @@ layout: archive
 collection: projects
 date: 2016-12-11
 permalink: /projects/PyADAO_construction/
+author_profile: True
 tags:
   - cool posts
   - category1
