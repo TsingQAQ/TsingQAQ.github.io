@@ -13,6 +13,7 @@ md结构分为两部分
 5. tags 指令似乎是给blog或者其他的最后的一个标签显示有关的
 6. categories 指令是另一种标签: 比如看http://stuartgeiger.com/articles/2018-05-28-cscw-documentation这个最后
    categories 已经测试成功，就是这个功能
+7. 单独每个页面的author_profile需要在页面内自己制定author_profile: True
 -------------- 
 
 下面是Markdown语言格式(html格式好像也可以)
