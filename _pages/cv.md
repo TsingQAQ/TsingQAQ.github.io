@@ -7,6 +7,6 @@ redirect_from:
   - /resume
 ---
 
-<p>A PDF format can be found <a style="text-decoration:underline;"><a href='https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/files/CV_Jixiang_Qing.pdf'; font color="blue">here</a></p>
+<p>A PDF format can be found <a href='https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/files/CV_Jixiang_Qing.pdf'; style="text-decoration:underline;">here</a></p>
 
 A PDF format can be found [here](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/files/CV_Jixiang_Qing.pdf). 
