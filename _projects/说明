@@ -16,6 +16,8 @@ md结构分为两部分
 7. 单独每个页面的author_profile需要在页面内自己制定author_profile: True
 8. TODO: 如何 readmore?
 9. TODO: 如何在excerption里面设置超链接
+10. 已解决CV页面中使用超链接问题: 使用HTML语言
+11. TODO: 如何解决projects 正文出现的图片无法显示的问题
 -------------- 
 
 下面是Markdown语言格式(html格式好像也可以)
