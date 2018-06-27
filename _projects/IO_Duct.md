@@ -5,6 +5,7 @@ title: Integrated Duct and Rotor geometry Optimization of ducted fan VTOL Aircra
 collection: projects
 date: 2018-05-15
 permalink: /projects/IO_duct/
+author_profile: True
 tags:
   - cool posts
   - category1
