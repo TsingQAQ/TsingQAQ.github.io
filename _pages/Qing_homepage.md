@@ -11,7 +11,6 @@ Candidate master of Flight Vehicle Design
 Department of
 [School of aeronautics ](http://hangkong.nwpu.edu.cn/home/overview.htm)  
 [Northwestern Polytechnical University](http://en.nwpu.edu.cn/ "Northwestern Polytechnical University")  (A 985-project and 211-project University)  
-**Email** tsingjixiang@yahoo.com  
 **Address** 127 West Youyi Road, Beilin District, Xi'an Shaanxi, 710072, P.R.China.
 
 Biography
