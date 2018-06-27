@@ -10,6 +10,7 @@ md结构分为两部分
 3. layout 标签和 collection 标签只有在同时分别设置为 archive, project的时候才会产生影响，我也不知道为什么，任何其中一种没有设置都没有用
    没用的时候不会显示标签栏，只有Markdown内容
 4. 似乎标签的功效还会和标签顺序有关，layout 和 collection放在title之后就没有效果[没有关系]
+5. tags 指令似乎是给blog或者其他的最后的一个标签显示有关的
 -------------- 
 
-下面是Markdown语言格式
+下面是Markdown语言格式(html格式好像也可以)
