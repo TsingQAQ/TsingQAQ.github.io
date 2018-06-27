@@ -1,7 +1,8 @@
 ---
+
 title: Design Optimization of an aircraft for AIAA Deisgn·Build·Fly Competition
 collection: projects
-
+layout: archive
 date: 2018-05-11
 permalink: /projects/AIAA_DBF/
 ---
