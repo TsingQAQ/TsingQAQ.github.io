@@ -21,3 +21,5 @@ A PDF format can be found [here](/files/CV_Jixiang_Qing.pdf){: .btn .btn--defaul
 -->
 
 A PDF format can be found  <button type="button" class="btn btn-link">[here](/files/CV_Jixiang_Qing.pdf)</button>
+
+<embed src="https://tsingqaq.github.io/files/CV_Jixiang_Qing.pdf" width="800px" height="2100px" />
