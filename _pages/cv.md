@@ -12,5 +12,7 @@ redirect_from:
 -->
 A PDF format can be found <span style="color:#337FE5;"><a class="ke-insertfile" href="/files/CV_Jixiang_Qing.pdf" target="_blank"><a class="ke-insertfile" href="/files/CV_Jixiang_Qing.pdf" target="_blank">here</a></a></span>{: .notice--success}
 
-A PDF format can be found [here](/files/CV_Jixiang_Qing.pdf){: .btn .btn--default}{font-size: 20px; }
+A PDF format can be found [here](/files/CV_Jixiang_Qing.pdf){: .btn .btn--default font-size: 20px; }
 {: .notice--success}
+
+A PDF format can be found  <button type="button" class="btn btn-link">[here](/files/CV_Jixiang_Qing.pdf)</button>
