@@ -1,6 +1,6 @@
 ---
 title: 'Construction of an aircraft design, analysis and optimization framework: PyADAO'
-layout: projects
+layout: archive
 collection: projects
 date: 2016-12-11
 permalink: /projects/PyADAO_construction/
