@@ -41,10 +41,10 @@ and integrate systems more effectively
 <p align="right">Python.org</p>
 
 * Python excels at interfacing with other languages, making it particularly useful to wrap numerically intensive disciplinary computations which are usually implemented in C/C++ or Fortran
-<p align="right">PyACDT <a href="https://arc.aiaa.org/doi/10.2514/6.2008-5955" target="_blank"><font color="blue">paper<font></a> </p>
+<p align="right">PyACDT <a href="https://arc.aiaa.org/doi/10.2514/6.2008-5955" target="_blank"><font color="blue">paper</font></a></p>
   
 * Python’s combination of object oriented programming, duck typing, concise language, portability in open source, and community standard as glueware has driven our decision.
-<p align="right">SUAVE <a href="https://arc.aiaa.org/doi/10.2514/6.2015-3087" target="_blank"><font color="blue">paper<font></a> </p>
+<p align="right">SUAVE <a href="https://arc.aiaa.org/doi/10.2514/6.2015-3087" target="_blank"><font color="blue">paper</font></a></p>
 
 * "Lif is Short, you need Python"
 <p align="right">Bruce Eckel</p>
