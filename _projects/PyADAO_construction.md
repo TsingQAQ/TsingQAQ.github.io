@@ -49,7 +49,13 @@ and integrate systems more effectively
 
 ## PyADAO capabilities
 ### Moldel Builder
-PyADAO was capable of building different fidelity of aircraft geometries, from low fidelity data to CAD models(supported by PythonOCC). And the code was specially designed for the easy construction.
+### Moldel Builder
+PyADAO was capable of building different fidelity of aircraft geometries and airfoils, from low fidelity data to CAD models(supported by PythonOCC). And the code was specially designed for the easy construction.
+### Solver 
+PyADAO now wrapped AVL and Xfoil, and also has some zero fidelity(emprical) solvers for performance analysis. And I am going to connect it to some high fidelity solvers like Fluent and SU2.
+### Capability demonstration: 
+Instead of giving a lengthy abstract description about the function, here's a case provided to see how PyADAO's able to construct the wing geometry of DLR F4 aircraft:
+
 <pre style="height: 400px; overflow: scroll;">
 import sys
 from os.path import abspath, join, dirname, pardir
