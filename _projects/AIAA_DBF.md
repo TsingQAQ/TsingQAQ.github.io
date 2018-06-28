@@ -53,7 +53,7 @@ Also, the formulation of geometry paramters are rubost enough so that all the tw
 A glance of optimization candidates is shown below:
 
 
-## Projects Outcome
+## Projects Outcome&Highlights
 Test Fly:
 
 ![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/AIAA_DBF/P1.png?raw=true)
