@@ -13,7 +13,7 @@ tags:
 ---
 ![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/gitmap.png?raw=true)
 
-The development of PyADAO has moved to concentrate on optimization methods as I am currently working on this. While there're many interesting TODO list in model builder, low fidelity solver and APIs, to name a few. While PyADAO is planned to be opensource in the near future, there are some issues like installation and docs that are not fully prepared for the release of its 0.1 Version. If this projects could fulfil some needs for you or you are also interested in building a similar project, feel free to contact me:)
+The development of PyADAO has moved to concentrate on optimization methods as I am currently working on this. While there're many interesting TODO list in model builder, low fidelity solver and APIs, to name a few. PyADAO is planned to be opensource in the near future, there are some issues like installation and docs that are not fully prepared for the release of its 0.1 Version. If this projects could fulfil some needs for you or you are also interested in building a similar project, feel free to contact me:)
 {: .notice--success}
 ## Motivation&Backgrounds
 Besides the introduction in [projects page](https://tsingqaq.github.io/projects/), the construction of PyADAO could also be help of :
@@ -231,7 +231,7 @@ If a high fidelity model is needed, just chang the defualt key word to True:
 
 and you will get a CAD model by PythonOCC:
 
-<img src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/HF%20DLR%20F4.png?raw=true" alt="drawing" width="300px" height="250px" align="middle"/> 
+<img src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/HF%20DLR%20F4.png?raw=true" alt="drawing" width="300px" height="250px" style="width:50%;/> 
 
 After the construction of aircraft model, it can be simply used to calculate the aerodynamic coefficients:
 
