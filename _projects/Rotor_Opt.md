@@ -36,12 +36,26 @@ While providing a relative accurate results, a cruicial deficiency of CFD is the
 #### Momentum Source Conecept
 
 As stated before, one way to reduce the computational cost is to reduce the grids number, while still provied accurate methods. Thus we have chosen the momentum source concept (MSC) to model the propellers, in which the propeller is treated as source terms added in the governing equations so that no complex 3D propeller body grids are needed. MSC give a good prediction at relative low cost, and thanks to the periodic flow condition in hovering, the total grids number can be reduced step further. As the constructing of MSC was not my work, further talks about this is beyond the scope to this introduction,  
+
+#### Gradient Based (Adjoint) Methods
+
+Gradient optimizers can significantly reduce the number of function calls as it searches local optimum. And the proposition of adjoint method in CFD has dramatically enhanced the usage of gradient base methods as the gradient can be calculated with no more CFD calculations. The gradient based methods provide fast optimizations, while a local optimum was more likely to be found instead of a global one. 
+
 #### Surrogate Based Optimization
 
+Another perfect way to treat expensive black box optimization is to use <a href="https://en.wikipedia.org/wiki/Bayesian_optimization"><font color="blue">Baysian Optimization</font></a>, or surrogate based optimization (SBO). The <a href="https://en.wikipedia.org/wiki/Surrogate_model"><font color="blue">surrogate model</font></a> can be built with modern design of experiment methods which require limited number of function calls, and an optimization can then be performed with some squential design strategies, i.e, Expected Improvement infill criteria, to find an optimum. Many SBO methods like <a href="https://en.wikipedia.org/wiki/Kriging"><font color="blue">Kriging</font></a> have been widely used in aerodynamic optimization and these methods give promising results.
 
 
 ## Optimization Framework
 ### optimization problems
+
+$$
+\begin{align}
+Minimize -FM \\
+s.t  \: X\\
+w.r.t \: T_{opt}>=T_{baseline}\\
+\end{align}
+$$
 
 $$Minimize -FM $$
 
