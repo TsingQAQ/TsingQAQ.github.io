@@ -20,29 +20,18 @@ tags:
 
 Ducted fan is a configurtaion propeller mounted in a duct so that a thrust augmentation can be obtained. Also, the existence of the duct brings with extra advantages like improved safety and low noise. These configurations have been propsed and developed for more than half a century and still shows growing concern on many appilacations, like <a href="https://en.wikipedia.org/wiki/Micro_air_vehicle"><font color="blue">MAV</font></a>, <a href="https://en.wikipedia.org/wiki/Flying_car"><font color="blue">flying cars</font></a> and fan in wing configurations.
   
-
+Our lab's second generation double ducted aircrafts flies smoothly in the air, while the main drawback of this aircrafts is the two blade commercial propeller which was used for fixed wing aircrafts, this low efficienct propeller significantly affect the endurance time of the aircrafts. In order to prolong the time in air and fly above 4000 meters elevation, a design optimization of propellers was carried out.
+![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/RO/double%20ducted%20fan.png?raw=true)
 
 ## Role&Responsibility
-As the cheif engineer, I was responsible for the whole design process of the aircrafts, which include:
-* Mission and score formula analysis 
-* Choose the configuration [Initial design]
-* Aerodynamic design ,structure design [preliminary stage]
-* Complete the design part of final report
+
+* design and conduct an force&moment test to validate the computational fluid dynamics (CFD) methods
+* build an optimization processes and validate the code through numerical benchmark functions
+* construct the main optimization framework
+* Sensitivity analysis of the optimize output
 
 ## Difficulties and Approaches
 
-### Score Formula
-
-$$Score=\frac{Writen ReportScore *  ToltalMissionScore}{RAC} $$
-
-$$ToltalMissionScore=1 + M_2 + M_3$$
-
-$$RAC=EWmax * Wingspan$$
-
-Notes:                 
-1 $$EWmax$$: Aircraft Empty weight
-2 $$M_2$$: Mission 2 score
-3 $$M_3$$: Mission 3 score
 
 ### Surrogate Based Optimization
 The main different of DBF match and other aeronatical contest is the rules. Unlike many other competitions that the design goal is clearly specified, a series of score formula is provided for teams, and you have to analysis these formula to make out **what kind of aircraft have the highest possibilty to get a highest score**, thus optimizations and sensitivity analysis are usuallt involved.
@@ -53,10 +42,21 @@ In conclusion, differnt type of aircrafts will get different scores in missions,
 
 
 ## Optimization Framework
+### optimization problems
 
+$$Minimize -FM $$
+
+$$s.t X$$
+
+$$w.r.t T_opt>=T_baseline$$
+
+Notes
+1 FM: figure of merit (denote the hover efficiency of ducted fan)
+2 X: propeller geometry design variables
+3 T_opt: optimized propeller thrust
+4 T_baseline: baseline propeller thrust
 
 
 ## Projects Outcome&Highlights
-Test Fly:
 
-![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/AIAA_DBF/P1.png?raw=true)
+![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/RO/3nd%20propeller.png?raw=true)
