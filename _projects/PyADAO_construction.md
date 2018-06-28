@@ -20,6 +20,7 @@ Besides the introduction in [projects page](https://tsingqaq.github.io/projects/
 * Providing a platform for aircraft design optimizations
 * Learning and implementing aircraft optimization ralated theories
 * Learning and practice Python programming language
+
 ## Role&Responsibility
 As the main (only) developer, currently I am responsible for the whole program. 
 
