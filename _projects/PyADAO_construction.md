@@ -11,7 +11,6 @@ tags:
   - category1
   - category2
 ---
-
 ![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/gitmap.png?raw=true)
 
 The PyADAO 
@@ -49,12 +48,20 @@ and integrate systems more effectively
 
 ## PyADAO capabilities
 ### Moldel Builder
-### Moldel Builder
 PyADAO was capable of building different fidelity of aircraft geometries and airfoils, from low fidelity data to CAD models(supported by PythonOCC). And the code was specially designed for the easy construction.
 ### Solver 
 PyADAO now wrapped AVL and Xfoil, and also has some zero fidelity(emprical) solvers for performance analysis. And I am going to connect it to some high fidelity solvers like Fluent and SU2.
+### Numerical Optimization
+* Scipy provided optimizers
+* Genetic Alogorthms (Inspyred)
+* Partical Swarm (included)
+* ACO (MIDACO)
+A benchmark optimization of Rosenbrock function (dimension: 10, variable range: [-10, 10]) can be shown:
+![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/opt.png?raw=true)
+
 ### Capability demonstration: 
-Instead of giving a lengthy abstract description about the function, here's a case provided to see how PyADAO's able to construct the wing geometry of DLR F4 aircraft:
+Instead of giving a lengthy, abstract description about the function, here's a case provided to see how PyADAO's able to construct the wing geometry of DLR F4 aircraft:
+
 
 <pre style="height: 400px; overflow: scroll;">
 import sys
@@ -203,7 +210,19 @@ DLR_F4 = Aircraft_geometry('Flyxiang')
 DLR_F4.add_surface(DLR_F4_Wing, apex=np.array([347, 0, 0]) * Unit['mm'])  # 该条代码运行正常
 DLR_F4.add_fuselage(DLR_F4_Fuse)
 DLR_F4.show_aircraft(high_fidelity=False)
+</pre>
 
+The code:
+`DLR_F4.show_aircraft(high_fidelity=False)` 
+will provide a low fidelity DLR F4 wing illustrated in the following picture.
+<img src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/LF%20DLR%20F4.png?raw=true" alt="drawing" width="300px" height="250px" align="middle"/> 
+If a high fidelity model is needed, just chang the defualt key word to True:
+`DLR_F4.show_aircraft(high_fidelity=True)`
+and you will get a CAD model by PythonOCC:
+<img src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/HF%20DLR%20F4.png?raw=true" alt="drawing" width="300px" height="250px"align="middle"/> 
+After the construction of aircraft model, it can be simply used to calculate the aerodynamic coefficients:
+
+<pre style="height: 300px; overflow: scroll;">
 # ===========================Define flight condition(for CFD analysis)=================
 # 设置aero_solver运行飞行环境：
 DLR_F4_Test_Phase = phase()
@@ -239,13 +258,14 @@ from Flight_Dynamics.FC_Solver import Get_Trimmed_SM
 print('Static Margin is: {}'.format(Get_Trimmed_SM(DLR_F4, DLR_F4_Test_Phase, MAC=0.1412 * Unit['m'])))
 </pre>
 
-<img src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/LF%20DLR%20F4.png?raw=true" alt="drawing" width="300px" height="250px"/> <img src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/HF%20DLR%20F4.png?raw=true" alt="drawing" width="300px" height="250px"/> 
+Some other images of PyADAO are illustrated here:
+
 <img
-src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/CSM.png?raw=true" alt="drawing" width="300px" height="200px"/> 
+src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/CSM.png?raw=true" alt="drawing" width="300px" height="200px" align="middle"/> 
 <img
-src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/tinny%20yellow.jpg?raw=true" alt="drawing" width="300px" height="200px"/>
+src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/tinny%20yellow.jpg?raw=true" alt="drawing" width="300px" height="200px" align="middle"/>
 <img
-src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/RAE2822.png?raw=true" alt="drawing"/> 
+src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/RAE2822.png?raw=true" alt="drawing" align="middle"/> 
 ## Projects Outcome
 * The PyADAO has succesfully offered a platform for aircraft preliminary design and optimizations, and it has played a huge role in the [AIAA DBF](https://tsingqaq.github.io/projects/AIAA_DBF/) project. 
 * The projects has also been awarded as a good conclusion in the final project measurement:
