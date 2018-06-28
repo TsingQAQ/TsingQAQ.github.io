@@ -44,13 +44,15 @@ and integrate systems more effectively
 * "Lif is Short, you need Python"
 <p align="right">Bruce Eckel</p>
 
-## Challenges & Proposed Solutions
-
 ## PyADAO capabilities
 ### Moldel Builder
-PyADAO was capable of building different fidelity of aircraft geometries and airfoils, from low fidelity data to CAD models(supported by PythonOCC). And the code was specially designed for the easy construction.
+* Low fidelity data 
+* CAD Model (PythonOCC)
+* CATIA(Plan to do)
 ### Solver 
-PyADAO now wrapped AVL and Xfoil, and also has some zero fidelity(emprical) solvers for performance analysis. And I am going to connect it to some high fidelity solvers like Fluent and SU2.
+* AVL
+* Xfoil
+* SU2(Plann to do)
 ### Numerical Optimization
 * Scipy provided optimizers
 * Genetic Alogorthms (Inspyred)
@@ -214,12 +216,16 @@ DLR_F4.show_aircraft(high_fidelity=False)
 
 The code:
 `DLR_F4.show_aircraft(high_fidelity=False)` 
-will provide a low fidelity DLR F4 wing illustrated in the following picture.
-<img src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/LF%20DLR%20F4.png?raw=true" alt="drawing" width="300px" height="250px" align="middle"/> 
+will provide a low fidelity DLR F4 wing illustrated in the following picture.  
+
+<img src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/LF%20DLR%20F4.png?raw=true" alt="drawing" width="300px" height="250px" align="middle"/>   
+
 If a high fidelity model is needed, just chang the defualt key word to True:
 `DLR_F4.show_aircraft(high_fidelity=True)`
 and you will get a CAD model by PythonOCC:
-<img src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/HF%20DLR%20F4.png?raw=true" alt="drawing" width="300px" height="250px"align="middle"/> 
+
+<img src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/HF%20DLR%20F4.png?raw=true" alt="drawing" width="300px" height="250px" align="middle"/> 
+
 After the construction of aircraft model, it can be simply used to calculate the aerodynamic coefficients:
 
 <pre style="height: 300px; overflow: scroll;">
