@@ -40,9 +40,9 @@ A survey was conducted to find the exist aircraft design optimization frameworks
 and integrate systems more effectively
 <p align="right">Python.org</p>
 * Python excels at interfacing with other languages, making it particularly useful to wrap numerically intensive disciplinary computations which are usually implemented in C/C++ or Fortran
-<p align="right">PyACDT [paper](https://arc.aiaa.org/doi/10.2514/6.2008-5955)</p>
+<p align="right">PyACDT <a href="https://arc.aiaa.org/doi/10.2514/6.2008-5955" target="_blank">paper</a> </p>
 *  Python’s combination of object oriented programming, duck typing, concise language, portability in open source, and community standard as glueware has driven our decision.
-<p align="right">SUAVE [paper](https://arc.aiaa.org/doi/10.2514/6.2015-3087)</p>
+<p align="right">SUAVE <a href="https://arc.aiaa.org/doi/10.2514/6.2015-3087" target="_blank">paper</a> </p>
 
 * "Lif is Short, you need Python"
 <p align="right">Bruce Eckel</p>
@@ -232,7 +232,7 @@ If a high fidelity model is needed, just chang the defualt key word to True:
 
 and you will get a CAD model by PythonOCC:
 
-<img src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/HF%20DLR%20F4.png?raw=true" alt="drawing" width="300px" height="250px" style="width:50%;/> 
+<img src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/HF%20DLR%20F4.png?raw=true" alt="drawing" width="300px" height="250px" style="width:50%;"/> 
 
 After the construction of aircraft model, it can be simply used to calculate the aerodynamic coefficients:
 
