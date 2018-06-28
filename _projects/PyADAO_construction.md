@@ -11,9 +11,10 @@ tags:
   - category1
   - category2
 ---
+
 ![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/gitmap.png?raw=true)
 
-The PyADAO 
+TODO
 {: .notice--success}
 ## Motivation&Backgrounds
 Besides the introduction in [projects page](https://tsingqaq.github.io/projects/), the construction of PyADAO could also be help of :
@@ -45,11 +46,17 @@ and integrate systems more effectively
 <p align="right">Bruce Eckel</p>
 
 ## Challenges & Proposed Solutions
-
-## Projects Outcome
-
-## Projects Highlights
+## PyADAO capabilities
 <img src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/LF%20DLR%20F4.png?raw=true" alt="drawing" width="300px" height="250px"/> <img src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/HF%20DLR%20F4.png?raw=true" alt="drawing" width="300px" height="250px"/> 
-src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/HF%20DLR%20F4.png?raw=true" alt="drawing" width="300px" height="250px"/> 
-## Future of PyADAO
+<img
+src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/CSM.png?raw=true" alt="drawing" width="300px" height="200px"/> 
+<img
+src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/tinny%20yellow.jpg?raw=true" alt="drawing" width="300px" height="200px"/>
+<img
+src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/RAE2822.png?raw=true" alt="drawing"/> 
+## Projects Outcome
+* The PyADAO has succesfully offered a platform for aircraft preliminary design and optimizations, and it has played a huge role in the [AIAA DBF](https://tsingqaq.github.io/projects/AIAA_DBF/) project. 
+* The projects has also been awarded as a good conclusion in the final project measurement:
+<img src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/jj.png?raw=true" alt="drawing" width="300px" height="450px"/> 
 
+## Future of PyADAO
