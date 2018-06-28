@@ -49,13 +49,28 @@ Another perfect way to treat expensive black box optimization is to use <a href=
 ## Optimization Framework
 ### optimization problems
 
-$$
-\begin{align}
+\begin{equation}
+
+  
+  
+\begin{cases}
+
+  
 Minimize -FM \\
+
 s.t  \: X\\
-w.r.t \: T_{opt}>=T_{baseline}\\
-\end{align}
-$$
+
+w.r.t \: T_{opt}>=T_{baseline}
+
+
+  
+  
+\end{cases}
+
+  
+  
+\end{equation}
+
 
 $$Minimize -FM $$
 
