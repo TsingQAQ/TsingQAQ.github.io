@@ -17,6 +17,7 @@ author_profile: True
 Ducted fan is a configurtaion propeller mounted in a duct so that a thrust augmentation can be obtained. Also, the existence of the duct brings with extra advantages like improved safety and low noise. These configurations have been propsed and developed for more than half a century and still shows growing concern on many appilacations, like <a href="https://en.wikipedia.org/wiki/Micro_air_vehicle"><font color="blue">MAV</font></a>, <a href="https://en.wikipedia.org/wiki/Flying_car"><font color="blue">flying cars</font></a> and fan in wing configurations.
   
 Our lab's second generation double ducted aircrafts flies smoothly in the air, while the main drawback of this aircrafts is the two blade commercial propeller which was used for fixed wing aircrafts, this low efficienct propeller significantly affect the endurance time of the aircrafts. In order to prolong the time in air and fly above 4000 meters elevation, a design optimization of propellers was carried out.
+
 ![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/RO/double%20ducted%20fan.png?raw=true)
 
 ## Role&Responsibility
@@ -27,14 +28,16 @@ Our lab's second generation double ducted aircrafts flies smoothly in the air, w
 * Sensitivity analysis of the optimize output
 
 ## Difficulties and Approaches
+### Difficulties: Large computational consumptions
 
+While providing a relative accurate results, a cruicial deficiency of CFD is the large computational consumption, i.e, long time to run. And the consumption are directly related to the grids number, a typical calculation will last hours to days, even on workstation or cluster. Which means that a traditional global optimization methods like GA, PSO is imposible for the large number of function calls.
 
-### Surrogate Based Optimization
-The main different of DBF match and other aeronatical contest is the rules. Unlike many other competitions that the design goal is clearly specified, a series of score formula is provided for teams, and you have to analysis these formula to make out **what kind of aircraft have the highest possibilty to get a highest score**, thus optimizations and sensitivity analysis are usuallt involved.
+### Approches:
+#### Momentum Source Conecept
 
-The crucial part of the match is to analysis the core formula. A large aircrafts can carry more payload and ,more likely to get a higher score for Mission 3, while it will have a large $$EWmax$$ henc large $$RAC$$. By contrast, a lighter aircraft may be able to fly faster to get a better score at Mission 2, but it will not tend to behave will in mission 3. 
+As stated before, one way to reduce the computational cost is to reduce the grids number, while still provied accurate methods. Thus we have chosen the momentum source concept (MSC) to model the propellers, in which the propeller is treated as source terms added in the governing equations so that no complex 3D propeller body grids are needed. MSC give a good prediction at relative low cost, and thanks to the periodic flow condition in hovering, the total grids number can be reduced step further. As the constructing of MSC was not my work, further talks about this is beyond the scope to this introduction,  
+#### Surrogate Based Optimization
 
-In conclusion, differnt type of aircrafts will get different scores in missions, and there's no obvious one that can get the highest score in multiple missions, a design optimization is expected to be carried out.
 
 
 ## Optimization Framework
@@ -42,9 +45,9 @@ In conclusion, differnt type of aircrafts will get different scores in missions,
 
 $$Minimize -FM $$
 
-$$s.t X$$
+$$s.t  /qquadX$$
 
-$$w.r.t T_opt>=T_baseline$$
+$$w.r.t /qquad T_{opt}>=T_{baseline}$$
 
 Notes
 1 FM: figure of merit (denote the hover efficiency of ducted fan)
