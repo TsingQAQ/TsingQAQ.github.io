@@ -13,13 +13,15 @@ tags:
 ---
 ![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/gitmap.png?raw=true)
 
-The PyADAO 
+The development of PyADAO has moved to concentrate on optimization methods as I am currently working on this. While there're many interesting TODO list in model builder, low fidelity solver and APIs, to name a few. While PyADAO is planned to be opensource in the near future, there are some issues like installation and docs that are not fully prepared for the release of its 0.1 Version. If this projects could fulfil some needs for you or you are also interested in building a similar project, feel free to contact me:)
 {: .notice--success}
 ## Motivation&Backgrounds
 Besides the introduction in [projects page](https://tsingqaq.github.io/projects/), the construction of PyADAO could also be help of :
 * Providing a platform for aircraft design optimizations
 * Learning and implementing aircraft optimization ralated theories
 * Learning and practice Python programming language
+## Role&Responsibility
+As the main (only) developer, currently I am responsible for the whole program. 
 
 ## Survey of related codes/software 
 A survey was conducted to find the exist aircraft design optimization frameworks, some of them are listed in the following tables:
@@ -59,6 +61,7 @@ and integrate systems more effectively
 * Partical Swarm (included)
 * ACO (MIDACO)
 A benchmark optimization of Rosenbrock function (dimension: 10, variable range: [-10, 10]) can be shown:
+
 ![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/opt.png?raw=true)
 
 ### Capability demonstration: 
@@ -215,13 +218,17 @@ DLR_F4.show_aircraft(high_fidelity=False)
 </pre>
 
 The code:
+
 `DLR_F4.show_aircraft(high_fidelity=False)` 
+
 will provide a low fidelity DLR F4 wing illustrated in the following picture.  
 
-<img src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/LF%20DLR%20F4.png?raw=true" alt="drawing" width="300px" height="250px" align="middle"/>   
+<img src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/LF%20DLR%20F4.png?raw=true" alt="drawing" width="300px" height="250px" style="width:50%;"/>   
 
 If a high fidelity model is needed, just chang the defualt key word to True:
+
 `DLR_F4.show_aircraft(high_fidelity=True)`
+
 and you will get a CAD model by PythonOCC:
 
 <img src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/HF%20DLR%20F4.png?raw=true" alt="drawing" width="300px" height="250px" align="middle"/> 
@@ -278,4 +285,10 @@ src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/RA
 <img src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/jj.png?raw=true" alt="drawing" width="300px" height="450px"/> 
 
 ## Future of PyADAO
-As 
+* Connect to high fidelity Solvers
+* Fully Support the capability to build a fuselage
+* support CATIA CAD
+* Wrap latest optimization methos
+
+Notes: A detailed roadmap of PyADAO has been included in readme on bitbucket. And the project has changed the name to PyADASO, which means that Simulation capability is also in plan. Feel free to contact me to get more details.
+
