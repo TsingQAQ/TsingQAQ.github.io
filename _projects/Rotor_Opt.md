@@ -45,9 +45,9 @@ As stated before, one way to reduce the computational cost is to reduce the grid
 
 $$Minimize -FM $$
 
-$$s.t  /qquadX$$
+$$s.t  \: X$$
 
-$$w.r.t /qquad T_{opt}>=T_{baseline}$$
+$$w.r.t \: T_{opt}>=T_{baseline}$$
 
 Notes
 1 FM: figure of merit (denote the hover efficiency of ducted fan)
