@@ -16,7 +16,8 @@ tags:
 The development of PyADAO has moved to concentrate on optimization methods as I am currently working on this. While there're many interesting TODO list in model builder, low fidelity solver and APIs, to name a few. PyADAO is planned to be opensource in the near future, there are some issues like installation and docs that are not fully prepared for the release of its 0.1 Version. If this projects could fulfil some needs for you or you are also interested in building a similar project, feel free to contact me:)
 {: .notice--success}
 ## Motivation&Backgrounds
-Besides the introduction in [projects page](https://tsingqaq.github.io/projects/), the construction of PyADAO could also be help of :
+Besides the introduction in <a href="https://tsingqaq.github.io/projects/" target="_blank"><font color="blue">projects page</font></a>
+, the construction of PyADAO could also be help of :
 * Providing a platform for aircraft design optimizations
 * Learning and implementing aircraft optimization ralated theories
 * Learning and practice Python programming language
