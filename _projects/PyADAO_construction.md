@@ -31,7 +31,7 @@ A survey was conducted to find the exist aircraft design optimization frameworks
 || ![](http://suave.stanford.edu/images/logo.svg)  | ![](https://www.parapy.nl/wp-content/uploads/2016/08/parapy_logo_small@2x.png) |![](http://occ-airconics.readthedocs.io/en/latest/_images/cover.png) |<img src="http://www.aircraftdesign.ca/_images/software_pyacdt.png" alt="drawing" width="500px" height="70px"/> | 
 | :------------: |:---------------:| :-----:|:-----:| :-----:| 
 | Name | SUAVE| ParaPy |AirConics/occ-airconics| PyACDT | 
-| Developer| [Stanford](http://suave.stanford.edu/) | [ParaPy Inc](https://www.parapy.nl/) | [Andra Sobester](https://aircraftgeometrycodes.wordpress.com/airconics/); [Paul Chamber](https://github.com/p-chambers/occ_airconics), etc| [AAD Lab](http://www.aircraftdesign.ca/software/pyacdt/pyacdt.html) & [MDO lab](http://mdolab.engin.umich.edu/tags/pyacdt)| 
+| Developer| <a href="http://suave.stanford.edu/" target="_blank"><font color="blue">Stanford</font></a> | [ParaPy Inc](https://www.parapy.nl/) | [Andra Sobester](https://aircraftgeometrycodes.wordpress.com/airconics/); [Paul Chamber](https://github.com/p-chambers/occ_airconics), etc| [AAD Lab](http://www.aircraftdesign.ca/software/pyacdt/pyacdt.html) & [MDO lab](http://mdolab.engin.umich.edu/tags/pyacdt)| 
 | Focuses| inital design|  framework   |model generator| not known |
  |Code info |Python 2 <br> Heavy develop| Python | Python 3<br> Develop stopped| Python|
 |Notes |opensource on github |Commercial |opensource on github |Lab use |
