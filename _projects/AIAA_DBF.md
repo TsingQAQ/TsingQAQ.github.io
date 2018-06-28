@@ -11,15 +11,8 @@ permalink: /projects/AIAA_DBF/
 
 ![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/gitmap.png?raw=true)
 
-The development of PyADAO has moved to concentrate on optimization methods as I am currently working on this. While there're many interesting TODO list in model builder, low fidelity solver and APIs, to name a few. PyADAO is planned to be opensource in the near future, there are some issues like installation and docs that are not fully prepared for the release of its 0.1 Version. If this projects could fulfil some needs for you or you are also interested in building a similar project, feel free to contact me:)
-{: .notice--success}
-
-## Motivation&Backgrounds
-Besides the introduction in <a href="https://tsingqaq.github.io/projects/" target="_blank"><font color="blue">projects page</font></a>
-, the construction of PyADAO could also be help of :
-* Providing a platform for aircraft design optimizations
-* Learning and implementing aircraft optimization ralated theories
-* Learning and practice Python programming language
+## Backgrounds
+An aircraft design optimnization was performed for [AIAA DBF](https://www.aiaadbf.org/General-Info/ "AIAA DBF") . The [score model](https://www.aiaadbf.org/Scoring/ "score model") of the competition draw special concern as that both geometry paramters and mission performance were involved in, and the contradiction of these parameters speified that a design optimization must be performed. An aircraft preliminary design coupled with mission planning framework was built based on [PyADAO](https://tsingqaq.github.io/projects/PyADAO_construction/ "PyADAO") to find a design that could get the highest score. A tandem wing configuration was found for the final design.
 
 ## Role&Responsibility
 As the cheif engineer, I was responsible for the whole design process of the aircrafts, which include:
@@ -31,6 +24,7 @@ As the cheif engineer, I was responsible for the whole design process of the air
 ## Difficulties and Approaches
 
 ### Score Formula
+
 $$Score=\frac{Writen ReportScore *  ToltalMissionScore}{RAC} $$
 
 $$ToltalMissionScore=1 + M_2 + M_3$$
@@ -122,4 +116,6 @@ China-->Andrew: How are you?
 Andrew->>China: I am good thanks!
 ```
 
-### End
+## Projects Outcome
+![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/AIAA_DBF/P1.png?raw=true)
+
