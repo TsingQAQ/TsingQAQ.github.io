@@ -6,8 +6,8 @@ main:
   - title: "Projects"
     url: /projects/
   
-  - title: "Blog Posts"
-    url: /year-archive/ 
+  # - title: "Blog Posts"
+  #  url: /year-archive/ 
     
   # 2018/5/10 commented out
   # - title: "Talks"
