@@ -27,12 +27,12 @@ Our lab's second generation double ducted aircrafts flies smoothly in the air, w
 * construct the main optimization framework
 * Sensitivity analysis of the optimize output
 
-## Difficulties and Approaches
-### Difficulties: Large computational consumptions
+## Challenges & Proposed Solutions
+### Challenges: Large computational consumptions
 
 While providing a relative accurate results, a cruicial deficiency of CFD is the large computational consumption, i.e, long time to run. And the consumption are directly related to the grids number, a typical calculation will last hours to days, even on workstation or cluster. Which means that a traditional global optimization methods like GA, PSO is imposible for the large number of function calls.
 
-### Approches:
+### Proposed Solutions:
 #### Momentum Source Conecept
 
 As stated before, one way to reduce the computational cost is to reduce the grids number, while still provied accurate methods. Thus we have chosen the momentum source concept (MSC) to model the propellers, in which the propeller is treated as source terms added in the governing equations so that no complex 3D propeller body grids are needed. MSC give a good prediction at relative low cost, and thanks to the periodic flow condition in hovering, the total grids number can be reduced step further. As the constructing of MSC was not my work, further talks about this is beyond the scope to this introduction,  
@@ -47,6 +47,9 @@ Another perfect way to treat expensive black box optimization is to use <a href=
 
 
 ## Optimization Framework
+
+<div align=center><img  src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/RO/ducted%20fan%20optimization%20framework.png"/></div>
+
 ### optimization problems
 
 \begin{equation}
