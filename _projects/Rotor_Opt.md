@@ -48,7 +48,7 @@ Another perfect way to treat expensive black box optimization is to use <a href=
 
 ## Optimization Framework
 
-<div align=center><img  src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/RO/ducted%20fan%20optimization%20framework.png"/></div>
+<div align=center><img  src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/RO/ducted%20fan%20optimization%20framework.png?raw=true"/></div>
 
 ### optimization problems
 
