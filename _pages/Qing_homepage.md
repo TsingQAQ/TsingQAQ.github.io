@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Qing JiXiang"
+title: "About me"
 excerpt: "About me"
 author_profile: true
 redirect_from: 
@@ -8,8 +8,6 @@ redirect_from:
   - /Qing.html
 ---
 
-Biography
-======
 I am a second year postgraduate student major in flight vehible design in school of aeronautics at Northwestern Polytechnical University, under the Supervision and guidance of Professor Hu Yu.
 
 
