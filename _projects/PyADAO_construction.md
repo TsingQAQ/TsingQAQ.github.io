@@ -293,6 +293,7 @@ src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/RA
 * Fully Support the capability to build a fuselage
 * support CATIA CAD
 * Wrap latest optimization methos
+![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/PyADAO_framwork.png?raw=true)
 
 Notes: A detailed roadmap of PyADAO has been included in readme on bitbucket. And the project has changed the name to PyADASO, which means that Simulation capability is also in plan. Feel free to contact me to get more details.
 
