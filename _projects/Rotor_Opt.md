@@ -2,7 +2,7 @@
 layout: archive
 collection: projects
 title: Propeller Optimization of ducted fan VTOL Aircrafts 
-excerpt: A design optimization was carried out on ducted fan propellers, chord and twist distribution was parametrized by quadratic spline method. An optimization problem was formulated to find a better hovering efficiency such that the thrust was constriant. The analysis was carried out by Computational Fluild Dynamics with the help of Kirging surrogate based optimization method. The output propeller and newly designed energy system could carry the UAV to fly above 4000 m elevation <button type="button" class="btn btn-outline-dark">[read more](https://github.com/TsingQAQ/TsingQAQ.github.io/edit/master/_projects/Rotor_Opt.md)</button>
+excerpt: A design optimization was carried out on ducted fan propellers, chord and twist distribution was parametrized by quadratic spline method. An optimization problem was formulated to find a better hovering efficiency such that the thrust was constriant. The analysis was carried out by Computational Fluild Dynamics with the help of Kirging surrogate based optimization method. The output propeller and newly designed energy system could carry the UAV to fly above 4000 m elevation <button type="button" class="btn btn-outline-dark">[read more](https://github.com/TsingQAQ/TsingQAQ.github.io/edit/master/_projects/Rotor_Opt.md)</button>Button>Default</Button>
 collection: projects
 date: 2018-01-15
 permalink: /projects/Rotor_Optimization/
