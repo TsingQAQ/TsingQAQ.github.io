@@ -6,6 +6,10 @@ main:
   - title: "Projects"
     url: /projects/
   
+  # 2018/6/29 新增
+  - title: "Awards"
+    url: /Awards/
+    
   # - title: "Blog Posts"
   #  url: /year-archive/ 
     
