@@ -19,9 +19,9 @@ author_profile: true
 
 
 ## Scholarships
-The First Prize Scholarship July.2016  
-The Second Prize Scholarship 2012-2015, 2016-2017  
-Merit Student of school of Aeronautical 2012-2015
+* The First Prize Scholarship July.2016  
+* The Second Prize Scholarship 2012-2015, 2016-2017  
+* Merit Student of school of Aeronautical 2012-2015
 
 ## Certificates
 
