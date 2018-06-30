@@ -6,7 +6,7 @@ collection: projects
 date: 2018-05-15
 permalink: /projects/IO_duct/
 author_profile: True
-excerpt: An integration optimization of propeller geometries and duct shape was performed with the help of Kriging Surrogate Based Optimization, some interesting results were found.<button type="button" class="btn btn-info">[read more](/projects/IO_duct/)</button>
+excerpt: An integration optimization of propeller geometries and duct shape was performed with the help of Kriging Surrogate Based Optimization, some interesting results were found. **[read more](/projects/IO_duct/)**
 tags:
   - cool posts
   - category1
