@@ -14,10 +14,11 @@ md结构分为两部分
 6. categories 指令是另一种标签: 比如看http://stuartgeiger.com/articles/2018-05-28-cscw-documentation这个最后
    categories 已经测试成功，就是这个功能
 7. 单独每个页面的author_profile需要在页面内自己制定author_profile: True
-8. TODO: 如何 readmore?
+8. 已解决: 如何 readmore: 使用bootstrap设置按钮
 9. TODO: 如何在excerption里面设置超链接
 10. 已解决CV页面中使用超链接问题: 使用HTML语言
 11. 已解决projects 正文出现的图片无法显示的问题：不要直接手动输入图片路径，如xxx/xx.jpg, 右键: 复制图片地址。这样图片后面会有一个raw=true的代码
+12. 已解决正文中不高亮显示hyperlink的问题: 不要设置layout为archive即可
 -------------- 
 
 下面是Markdown语言格式(html格式好像也可以)
