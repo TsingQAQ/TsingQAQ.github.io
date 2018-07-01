@@ -67,15 +67,15 @@ Meanwile, many famous machine learning frameworks like Keras, tensorflow, scikit
 * Some benchmark test functions
 * Scipy provided optimizers (gradient base, etc)
 * Genetic Alogorthms (Supported by <a href="https://github.com/aarongarrett/inspyred">Inspyred</a>)
-* Partical Swarm (included)
+* Partical Swarm (several variants are included)
 * ACO (<a href="http://www.midaco-solver.com/">MIDACO</a> (limited version))
 
-A benchmark optimization of <a href="https://en.wikipedia.org/wiki/Rosenbrock_function">Rosenbrock</a> function (dimension: 10, variable range: [-10, 10]) can be shown:
+A benchmark optimization of <a href="https://en.wikipedia.org/wiki/Rosenbrock_function">Rosenbrock</a> function (dimension: 10, variable range: [-10, 10] for each dimension) can be shown:
 
 ![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/opt.png?raw=true)
 
 ### Capability demonstration: 
-Instead of giving a lengthy, abstract description about the function, here's a case provided to see how PyADAO's able to construct the wing geometry of DLR F4 aircraft:
+Instead of giving a lengthy, abstract description about the framwork's function, here's a case provided to see how PyADAO's able to construct the wing geometry of <a href="https://www.google.com/search?rlz=1C2SQJL_zh-CNUS786US786&source=hp&ei=qU04W9q9D8v7vgSL_JHYCA&q=DLR+F4&oq=DLR+F4&gs_l=psy-ab.3..0i203k1l10.210.1171.0.1295.7.6.0.0.0.0.171.326.0j2.2.0....0...1c.1.64.psy-ab..5.2.324.0..0j35i39k1j0i131k1j0i67k1.0.JUtz8IP57Y4">DLR F4</a> aircraft in an object orientive and robust way:
 
 
 <pre style="height: 400px; overflow: scroll;">
@@ -93,35 +93,34 @@ from Model_Builder.Fuselage import Fuselage_Geometry
 from Model_Builder.Main import Wing
 
 sys.path.insert(0, abspath(join(dirname(__file__), pardir)))
-# TODO: 对DLR_F4进行一个比较精确的建模，并将计算结果与DLR_F4的数据进行一个对比，也算是一个Validation
+
 
 '''
-DLR F4 机翼建模
-程序引用附录:
+DLR F4 wing modeling
+references:
 [1] A Selection of Experimental Test Cases for the Validation of CFD Codes
 [2] Drag Predictionfor the DLR-F4Wing/Body usingOVERFLOWandCFL3D on an Overset Mesh
 [3] A comparison of Experimental Results for the Transonic Flow around the DFVLR-F-4 Wing Body Configuration: Final Report
 '''
-# 一些引用参数:
-Span = 0.5857 * 2 * Unit['m']   # 来源: [1]
-Ref_area = 0.1454 * Unit['m^2']  # 来源: [1]
-MAC = 0.1412  # 来源: [1]
+# some parameters:
+Span = 0.5857 * 2 * Unit['m']   # source: [1]
+Ref_area = 0.1454 * Unit['m^2']  # suorce: [1]
+MAC = 0.1412  # source: [1]
 
+# define wing geometric parameters:
 
-# 已设置
 def Sweep_Func(Epsilon):
     """
-    前缘后掠角函数； 27.1 deg 来源: [1]
+    27.1 deg source: [1]
     :param Epsilon:
     :return:
     """
     return 27.1
 
 
-# 已设置
 def Dihedral_Func(Epsilon):
     """
-    上反角构建函数，注意是角度制 来源: [1].Fig 1
+    unit: deg source: [1].Fig 1
     :param Epsilon:
     :return:
     """
@@ -130,8 +129,8 @@ def Dihedral_Func(Epsilon):
 
 def Airfoil_Func(Epsilon):
     """
-    翼型构建函数
-    展向站位数据 来源: [1]
+    airfoil datas at each loctaion
+    source: [1]
     :param Epsilon:
     :return:
     """
@@ -147,8 +146,7 @@ def Airfoil_Func(Epsilon):
 
 def Chord_Func(Epsilon):
     """
-    展向站位数据与翼型函数来源一致
-    翼型及弦长数据来源:
+    chord datas at each soan location
     :param Epsilon:
     :return:
     """
@@ -162,10 +160,9 @@ def Chord_Func(Epsilon):
         return 60.64112 * Unit['mm']
 
 
-# 说明: 由于翼型里面包含了位移，旋转，在消除位移后保持安装角为0即可
 def Incidence_Angle(Epsilon):
     """
-    数据来源:  目测自 [3] Fig. 3
+    source [3] Fig. 3
     :param Epsilon:
     :return:
     """
@@ -179,18 +176,9 @@ def Incidence_Angle(Epsilon):
         return -0.55
 
 
-from Model_Builder.Airfoil.Airfoils import Foil_Containers, Selig_Airfoil
-DLR_F4_DEF_1 = Selig_Airfoil('DLR F4 DEF1')
-DLR_F4_DEF_2 = Selig_Airfoil('DLR F4 DEF2')
-DLR_F4_DEF_3 = Selig_Airfoil('DLR F4 DEF3')
-DLR_F4_DEF_4 = Selig_Airfoil('DLR F4 DEF4')
-DLR_F4_Foil_checker = Foil_Containers(DLR_F4_DEF_1, DLR_F4_DEF_2, DLR_F4_DEF_3, DLR_F4_DEF_4)
-DLR_F4_Foil_checker.show_foils()
-
-# ===========机翼建模==============
+# ===========wing modeling==============
 DLR_F4_Wing = Wing(name='DLR_F4_Wing')
 
-# 下面这个表示在这几个位置会构建翼型
 # Yahudi break: 0.37
 DLR_F4_Wing.Kinks_Position_list = [0.4]
 
@@ -205,24 +193,9 @@ DLR_F4_Wing.Build_Surface()
 DLR_F4_Wing.show_surface(high_fidelity=True, duplicate=True)
 
 
-# ========== 机身建模  ================
-'''
-DLR_F4机身定义:
-    从250 - 626 mm 都是直径为148.42 mm 的圆 来源:
-'''
-DLR_F4_Fuse = Fuselage_Geometry('DLR_F4_Fuse')
-# TODO:  使用来源 [3] Fig. 5
-lower_guide_curve = np.array([[0, -7.698], [35, -40], [200, -75], [250, -81.9], [626.76, -81.9], [800, -50],
-                              [1000, -8], [1174, 38]]) * Unit['mm']
-upper_guide_curve = np.array([[0, -7.698], [35, 20], [200, 66.512], [250, 66.512], [626.76, 66.512], [800, 66.512],
-                              [1000, 66.512], [1174, 66.512]]) * Unit['mm']
-DLR_F4_Fuse.add_lower_fuselage_guideCurve(lower_guide_curve)
-DLR_F4_Fuse.add_upper_fuselage_guideCurve(upper_guide_curve)
-
-
-# ===全机建模: 把机翼加入飞机===============
+# ===put the wing in to an aircraft instance===============
 DLR_F4 = Aircraft_geometry('Flyxiang')
-DLR_F4.add_surface(DLR_F4_Wing, apex=np.array([347, 0, 0]) * Unit['mm'])  # 该条代码运行正常
+DLR_F4.add_surface(DLR_F4_Wing, apex=np.array([347, 0, 0]) * Unit['mm']) 
 DLR_F4.add_fuselage(DLR_F4_Fuse)
 DLR_F4.show_aircraft(high_fidelity=False)
 </pre>
@@ -247,16 +220,15 @@ After the construction of aircraft model, it can be simply used to calculate the
 
 <pre style="height: 300px; overflow: scroll;">
 # ===========================Define flight condition(for CFD analysis)=================
-# 设置aero_solver运行飞行环境：
 DLR_F4_Test_Phase = phase()
-DLR_F4_Test_Phase.flight_altitude = 8000 * Unit['m']  # 高度参数必须在空速之前
+DLR_F4_Test_Phase.flight_altitude = 8000 * Unit['m'] 
 DLR_F4_Test_Phase.air_speed_kph = 918 * Unit['Km/h']
 # =====================================================================================
 
 
 # ===============================Low fidelity CFD========================================
 # =====================AVL========================
-solver = builtin_solvers_lib.low_fidelity_solver(DLR_F4, 'AVL')  # 这条命令决定了如果Flyxiang发生更改，必须重新输入Flyxiang
+solver = builtin_solvers_lib.low_fidelity_solver(DLR_F4, 'AVL')  
 solver.set_params2solve(['CL', 'e'])
 solver.set_reference_param(Sref=0.1454 * Unit['m^2'], Cref=0.1412 * Unit['m'])
 solver.set_flight_condition(DLR_F4_Test_Phase)
@@ -265,10 +237,9 @@ solver.run()
 CL = solver.post_process('CL')
 e = solver.post_process('e')
 print('DLR_F4 CL: {}, e: {}'.format(CL, e))
-# 结束气动求解器运行: 一定要这句话!
 solver.end()
 
-# ==================== 封装的气动求解器函数 ===================
+# ==================== A more compact way to do similar work can be written as follows ===================
 print('\nThe AVL method is can also be called by the followeing function:\n')
 from Aerodynamics.Aero_Solver.solvers import Aircraft_coefficients_solver
 
@@ -276,7 +247,7 @@ CL_, e_ = Aircraft_coefficients_solver(DLR_F4, ['CL', 'e'], Sref=0.1454 * Unit['
                                        phase=DLR_F4_Test_Phase, write_fuselage=True)
 print('DLR_F4 CL: {}, e: {}\n'.format(CL, e))
 
-# ================== 计算纵向圈配平状态下: 0度攻角时候的静稳定裕度 ======================
+# ================== PyADAO have also implemented a Static Margin solver using AVL ======================
 from Flight_Dynamics.FC_Solver import Get_Trimmed_SM
 print('Static Margin is: {}'.format(Get_Trimmed_SM(DLR_F4, DLR_F4_Test_Phase, MAC=0.1412 * Unit['m'])))
 </pre>
