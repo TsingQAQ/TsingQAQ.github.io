@@ -50,7 +50,7 @@ and integrate systems more effectively
 * "Lif is Short, you need Python"
 <p align="right">Bruce Eckel</p>
 
-Meanwile, many famous machine learning frameworks like Keras, tensorflow, scikitlearn are written (or at least the top level codes are written) in Python, which offers appleaing chances for implementing related machine learning algorithms in PyADAO
+Meanwile, many famous machine learning frameworks like <a href="https://github.com/keras-team/keras">Keras</a>, <a href="https://github.com/tensorflow/tensorflow">tensorflow</a>, <a href="http://scikit-learn.org/stable/index.html">scikit-learn</a> are written (or at least the top level codes are written) in Python, which offers appleaing chances for implementing related machine learning algorithms in PyADAO
 
 ## PyADAO capabilities
 ### Moldel Builder
