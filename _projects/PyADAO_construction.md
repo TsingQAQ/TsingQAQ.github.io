@@ -267,10 +267,10 @@ src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/RA
 
 ## Future of PyADAO
 * Connect to high fidelity Solvers
-* Fully Support the capability to build a fuselage
-* support CATIA CAD
+* Fully Support the capability to build a fuselage (require some researches on relative parameterization methods)
+* support <a href="https://en.wikipedia.org/wiki/CATIA">CATIA CAD<a>
 * Wrap latest optimization methos
 ![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/PyADAO_framwork.png?raw=true)
 
-Notes: A detailed roadmap of PyADAO has been included in readme on bitbucket. And the project has changed the name to PyADASO, which means that Simulation capability is also in plan. Feel free to contact me to get more details.
+Notes: A detailed roadmap of PyADAO has been included in readme on bitbucket. The framework has changed its name to PyADASO, with the hope that Simulation capability is also included (plan to use <a href="http://jsbsim.sourceforge.net/">JSBsim</a>), albiet that this is a long map. Feel free to contact me to get more details if you like this project.
 
