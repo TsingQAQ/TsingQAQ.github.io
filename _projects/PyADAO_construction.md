@@ -50,7 +50,7 @@ and integrate systems more effectively
 * "Lif is Short, you need Python"
 <p align="right">Bruce Eckel</p>
 
-Meanwile, many famous machine learning frameworks like <a href="https://github.com/keras-team/keras">Keras</a>, <a href="https://github.com/tensorflow/tensorflow">tensorflow</a>, <a href="http://scikit-learn.org/stable/index.html">scikit-learn</a> are written (or at least the top level codes are written) in Python, which offers appleaing chances for implementing related machine learning algorithms in PyADAO
+Meanwile, many famous machine learning frameworks like <a href="https://github.com/keras-team/keras"><font color="blue">Keras</font></a>, <a href="https://github.com/tensorflow/tensorflow"><font color="blue">tensorflow</font></a>, <a href="http://scikit-learn.org/stable/index.html"><font color="blue">scikit-learn</font></a> are written (or at least the top level codes are written) in Python, which offers appleaing chances for implementing related machine learning algorithms in PyADAO
 
 ## PyADAO capabilities
 ### Moldel Builder
@@ -59,23 +59,23 @@ Meanwile, many famous machine learning frameworks like <a href="https://github.c
 * CATIA(Plan to do)
 
 ### Solver 
-* <a href="http://web.mit.edu/drela/Public/web/avl/">Athena Vortex Lattice (AVL)</a>
-* <a href="http://web.mit.edu/drela/Public/web/xfoil/">Xfoil</a>
+* <a href="http://web.mit.edu/drela/Public/web/avl/"><font color="blue">Athena Vortex Lattice (AVL)</font></a>
+* <a href="http://web.mit.edu/drela/Public/web/xfoil/"><font color="blue">Xfoil</font></a>
 * SU2(Plann to do)
 
 ### Numerical Optimization
 * Some benchmark test functions
 * Scipy provided optimizers (gradient base, etc)
-* Genetic Alogorthms (Supported by <a href="https://github.com/aarongarrett/inspyred">Inspyred</a>)
+* Genetic Alogorthms (Supported by <a href="https://github.com/aarongarrett/inspyred"><font color="blue">Inspyred</font></a>)
 * Partical Swarm (several variants are included)
-* ACO (<a href="http://www.midaco-solver.com/">MIDACO</a> (limited version))
+* ACO (<a href="http://www.midaco-solver.com/"><font color="blue">MIDACO</font></a> (limited version))
 
-A benchmark optimization of <a href="https://en.wikipedia.org/wiki/Rosenbrock_function">Rosenbrock</a> function (dimension: 10, variable range: [-10, 10] for each dimension) can be shown:
+A benchmark optimization of <a href="https://en.wikipedia.org/wiki/Rosenbrock_function"><font color="blue">Rosenbrock</font></a> function (dimension: 10, variable range: [-10, 10] for each dimension) can be shown:
 
 ![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/opt.png?raw=true)
 
 ### Capability demonstration: 
-Instead of giving a lengthy, abstract description about the framwork's function, here's a case provided to see how PyADAO's able to construct the wing geometry of <a href="https://www.google.com/search?rlz=1C2SQJL_zh-CNUS786US786&source=hp&ei=qU04W9q9D8v7vgSL_JHYCA&q=DLR+F4&oq=DLR+F4&gs_l=psy-ab.3..0i203k1l10.210.1171.0.1295.7.6.0.0.0.0.171.326.0j2.2.0....0...1c.1.64.psy-ab..5.2.324.0..0j35i39k1j0i131k1j0i67k1.0.JUtz8IP57Y4">DLR F4</a> aircraft in an object orientive and robust way:
+Instead of giving a lengthy, abstract description about the framwork's function, here's a case provided to see how PyADAO's able to construct the wing geometry of <a href="https://www.google.com/search?rlz=1C2SQJL_zh-CNUS786US786&source=hp&ei=qU04W9q9D8v7vgSL_JHYCA&q=DLR+F4&oq=DLR+F4&gs_l=psy-ab.3..0i203k1l10.210.1171.0.1295.7.6.0.0.0.0.171.326.0j2.2.0....0...1c.1.64.psy-ab..5.2.324.0..0j35i39k1j0i131k1j0i67k1.0.JUtz8IP57Y4"><font color="blue">DLR F4</font></a> aircraft in an object orientive and robust way:
 
 
 <pre style="height: 400px; overflow: scroll;">
@@ -268,9 +268,9 @@ src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/RA
 ## Future of PyADAO
 * Connect to high fidelity Solvers
 * Fully Support the capability to build a fuselage (require some researches on relative parameterization methods)
-* support <a href="https://en.wikipedia.org/wiki/CATIA">CATIA CAD<a>
+* support <a href="https://en.wikipedia.org/wiki/CATIA"><font color="blue">CATIA CAD</font></a>
 * Wrap latest optimization methos
 ![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/PyADAO_framwork.png?raw=true)
 
-Notes: A detailed roadmap of PyADAO has been included in readme on bitbucket. The framework has changed its name to PyADASO, with the hope that Simulation capability is also included (plan to use <a href="http://jsbsim.sourceforge.net/">JSBsim</a>), albiet that this is a long map. Feel free to contact me to get more details if you like this project.
+Notes: A detailed roadmap of PyADAO has been included in readme on bitbucket. The framework has changed its name to PyADASO, with the hope that Simulation capability is also included (plan to use <a href="http://jsbsim.sourceforge.net/"><font color="blue">JSBsim</font></a>), albiet that this is a long map. Feel free to contact me to get more details if you like this project.
 
