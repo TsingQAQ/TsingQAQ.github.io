@@ -47,6 +47,8 @@ Another perfect way to treat expensive black box optimization is to use <a href=
 
 ## Optimization Framework
 
+An optimization framework was constructed as follows, the initial samples were provided by <a href="https://en.wikipedia.org/wiki/Latin_hypercube_sampling"><font color="blue">Latin Hypercub Sampling (LHS)</font></a> method, and the expected improvement (EI) and minimum surrogate prediction (MSP) infill criteria were used in sequential design process. A max iter number and minimum EI were set as the convergence check methods.
+
 &ensp;&ensp;<img  src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/RO/ducted%20fan%20optimization%20framework.png?raw=true"/>
 
 ### optimization problems
@@ -60,10 +62,14 @@ $$s.t  \: X$$
 
 $$w.r.t \: T_{opt}>=T_{baseline}$$
 
-Notes
+Notes  
+
 1 FM: figure of merit (denote the hover efficiency of ducted fan)
+
 2 X: propeller geometry design variables
+
 3 T_opt: optimized propeller thrust
+
 4 T_baseline: baseline propeller thrust
 
 
