@@ -4,7 +4,7 @@ layout: archive
 collection: projects
 date: 2016-12-11
 permalink: /projects/PyADAO_construction/
-excerpt: The fast improvement of aerodynamic shape optimization methedologies (i.e geometric parametrization, Adjoint method, surrogate models) has introduced the change that "state-of-the-art" methods can be used at the very beginning of an aircraft design, even in conceptual design process. While many opensource tools like OpenMDAO, SUAVE, and SU2 are widely used, a framework must be consturcted to properly wrap these tools and offer a flexible enviroments for design and optimization problem formulation. Thus a Python based aircraft design, analysis, optimization framework was consturcted. A flying wing configuration drag(induced drag) reduce optimization was carried out to validate the code and a superior one was found. **[read more](/projects/PyADAO_construction/)**
+excerpt: The fast improvement of aerodynamic shape optimization methedologies (i.e geometric parametrization, Adjoint method, surrogate models) has introduced the change that "state-of-the-art" methods can be used at the very beginning of an aircraft design, even in conceptual design process. While many opensource tools like [OpenMDAO](http://openmdao.org/), [SU2](https://su2code.github.io/) are widely used, a framework must be consturcted to properly wrap these tools and offer a flexible enviroments for design and optimization problem formulation. Thus a Python based aircraft design, analysis, optimization framework was consturcted. **[read more](/projects/PyADAO_construction/)**
 author_profile: True
 tags:
   - cool posts
@@ -13,7 +13,7 @@ tags:
 ---
 ![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/gitmap.png?raw=true)
 
-The development of PyADAO has moved to concentrate on optimization methods as I am currently working on this. While there're many interesting TODO list in model builder, low fidelity solver and APIs, to name a few. PyADAO is planned to be opensource in the near future, there are some issues like installation and docs that are not fully prepared for the release of its 0.1 Version. If this projects could fulfil some needs for you or you are also interested in building a similar project, feel free to contact me:)
+The development of PyADAO has moved to concentrate on optimization methods as I am currently working on this. While there're many interesting TODO list in model builder, low fidelity solver and APIs, to name a few. PyADAO is planned to be opensource in the near future, there are some issues like installation and docs that are not fully prepared for the release of its 0.1 Version yet. If this projects could fulfil some needs for you or you are also interested in building a similar project, feel free to contact me:)
 {: .notice--success}
 ## Motivation&Backgrounds
 Besides the introduction in <a href="https://tsingqaq.github.io/projects/" target="_blank"><font color="blue">projects page</font></a>
@@ -50,21 +50,27 @@ and integrate systems more effectively
 * "Lif is Short, you need Python"
 <p align="right">Bruce Eckel</p>
 
+Meanwile, many famous machine learning frameworks like Keras, tensorflow, scikitlearn are written (or at least the top level codes are written) in Python, which offers appleaing chances for implementing related machine learning algorithms in PyADAO
+
 ## PyADAO capabilities
 ### Moldel Builder
 * Low fidelity data 
 * CAD Model (PythonOCC)
 * CATIA(Plan to do)
+
 ### Solver 
-* AVL
-* Xfoil
+* <a href="http://web.mit.edu/drela/Public/web/avl/">Athena Vortex Lattice (AVL)</a>
+* <a href="http://web.mit.edu/drela/Public/web/xfoil/">Xfoil</a>
 * SU2(Plann to do)
+
 ### Numerical Optimization
-* Scipy provided optimizers
-* Genetic Alogorthms (Inspyred)
+* Some benchmark test functions
+* Scipy provided optimizers (gradient base, etc)
+* Genetic Alogorthms (Supported by <a href="https://github.com/aarongarrett/inspyred">Inspyred</a>)
 * Partical Swarm (included)
-* ACO (MIDACO)
-A benchmark optimization of Rosenbrock function (dimension: 10, variable range: [-10, 10]) can be shown:
+* ACO (<a href="http://www.midaco-solver.com/">MIDACO</a> (limited version))
+
+A benchmark optimization of <a href="https://en.wikipedia.org/wiki/Rosenbrock_function">Rosenbrock</a> function (dimension: 10, variable range: [-10, 10]) can be shown:
 
 ![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/opt.png?raw=true)
 
