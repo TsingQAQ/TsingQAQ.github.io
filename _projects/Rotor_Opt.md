@@ -21,7 +21,7 @@ Our lab's second generation double ducted aircrafts flies smoothly in the air, w
 
 ## Role&Responsibility
 
-* design and conduct an force&moment test to validate the computational fluid dynamics (CFD) methods
+* design and conduct a force&moment test to validate the computational fluid dynamics (CFD) methods
 * build an optimization processes and validate the code through numerical benchmark functions
 * construct the main optimization framework
 * Sensitivity analysis of the optimize output
