@@ -5,7 +5,7 @@ collection: projects
 layout: archive
 date: 2017-9-13
 author_profile: True
-excerpt: An aircraft design optimnization was performed for [AIAA DBF](https://www.aiaadbf.org/General-Info/ "AIAA DBF") . The [score model](https://www.aiaadbf.org/Scoring/ "score model") of the competition draw special concern as that both geometry paramters and mission performance were involved in, and the contradiction effect of these parameters speified that a design optimization must be performed.  An aircraft preliminary design coupled with mission planning framework was built based on [PyADAO](https://tsingqaq.github.io/projects/PyADAO_construction/ "PyADAO") to find a design that could get the highest score. A tandem wing configuration was found for the final design. **[read more](/projects/AIAA_DBF/)**
+excerpt: An aircraft design optimnization was performed for [AIAA DBF](https://www.aiaadbf.org/General-Info/ "AIAA DBF") . The [score model](https://www.aiaadbf.org/Scoring/ "score model") of the competition draw special concern as that both geometry paramters and mission performance were involved in, and the contradiction effect of these parameters specified that a design optimization must be performed.  An aircraft preliminary design coupled with mission planning framework was built based on [PyADAO](https://tsingqaq.github.io/projects/PyADAO_construction/ "PyADAO") to find a design that could get the highest score. A tandem wing configuration was chosen for the final design. **[read more](/projects/AIAA_DBF/)**
 permalink: /projects/AIAA_DBF/
 ---
 ![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/PyADAO/gitmap.png?raw=true)
@@ -14,11 +14,11 @@ permalink: /projects/AIAA_DBF/
 An aircraft design optimnization was performed for [AIAA DBF](https://www.aiaadbf.org/General-Info/ "AIAA DBF") . The [score model](https://www.aiaadbf.org/Scoring/ "score model") of the competition draw special concern as that both geometry paramters and mission performance were involved in, and the contradiction of these parameters speified that a design optimization must be performed. An aircraft preliminary design coupled with mission planning framework was built based on [PyADAO](https://tsingqaq.github.io/projects/PyADAO_construction/ "PyADAO") to find a design that could get the highest score. A tandem wing configuration was found for the final design.
 
 ## Role&Responsibility
-As the cheif engineer, I was responsible for the whole design process of the aircrafts, which include:
+As the cheif engineer, I was responsible for the whole design process of the aircrafts, which includes:
 * Mission and score formula analysis 
 * Choose the configuration [Initial design]
 * Aerodynamic design ,structure design [preliminary stage]
-* Complete the design part of final report
+* Complete the design part of the final report
 
 ## Difficulties and Approaches
 
@@ -32,16 +32,15 @@ $$RAC=EWmax * Wingspan$$
 
 Notes:                 
 1 $$EWmax$$: Aircraft Empty weight
-2 $$M_2$$: Mission 2 score
-3 $$M_3$$: Mission 3 score
+2 $$M_2$$: Mission 2 score, mission 2 is a speed related game
+3 $$M_3$$: Mission 3 score, mission 3 is a capacity and endurance time related game
 
 ### Analysis
-The main different of DBF match and other aeronatical contest is the rules. Unlike many other competitions that the design goal is clearly specified, a series of score formula is provided for teams, and you have to analysis these formula to make out **what kind of aircraft have the highest possibilty to get a highest score**, thus optimizations and sensitivity analysis are usuallt involved.
+The main difference between DBF match and other aeronatical competitions is the rule. Unlike many others that the design goal is clearly specified so that one can easily know that wether it is a racing or load competition, a series of score formula are provided for teams, and you have to analysis these formula to make out **what kind of aircraft have the highest possibilty to get a highest score**, thus optimizations and sensitivity analysis are usually involved.
 
-The crucial part of the match is to analysis the core formula. A large aircrafts can carry more payload and ,more likely to get a higher score for Mission 3, while it will have a large $$EWmax$$ henc large $$RAC$$. By contrast, a lighter aircraft may be able to fly faster to get a better score at Mission 2, but it will not tend to behave will in mission 3. 
+The crucial part of the match is to analysis the core formula. A "large" aircrafts can carry more payload and, more likely to get a higher score for Mission 3. While it will have a large $$EWmax$$ henc large $$RAC$$. By contrast, a lighter aircraft may be able to fly faster to get a better score at Mission 2, but it will not be expected to behave will in mission 3. 
 
-In conclusion, differnt type of aircrafts will get different scores in missions, and there's no obvious one that can get the highest score in multiple missions, a design optimization is expected to be carried out.
-
+In conclusion, differnt type of aircrafts will get different scores in dissions, and there's no obvious one that can obtain the highest score in multiple missions, a design optimization is expected to be carried out.
 
 ## Approaches: How could PyADAO be helpful for the design
 In the initial design stage, a low fidelity solver is chosen as it can provide an result that is fast enough and with not too bad accuracy. Thus the AVL was used as the flow solver, different configurations were provided as candidates and analysised by a score model, which has a sub optimization process in it (Mixed Integer Nonlinear Optimization), the whole process was driven by a parallel partical swarm method to find a better one.
