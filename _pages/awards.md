@@ -29,9 +29,10 @@ redirect_from:
 ### Courses 
 
 * [Robotics: Aerial Robotics by Pennsylvania State University on Coursera Certificate](https://www.coursera.org/account/accomplishments/certificate/8XW3B8GW9CG6)
+* "The Way to Success" Career & Leadership Development Program at NPU certificated by [CEO global](http://en.ceoglobal.org/)
 * [Inspiring and Motivating Individuals by University of Michigan on Coursera Certificate](https://www.coursera.org/account/accomplishments/certificate/YDXM3CDHFA2C)
 * [Developing Your Musicianship by Berklee College of Music on Coursera Certificate](https://www.coursera.org/account/accomplishments/certificate/R5BWMXK3QK8C)
-* "The Way to Success" Career & Leadership Development Program by NPU
+
 
 ### Micellaneous
 * Music theory level 5 certficated by [ABRSM](https://gb.abrsm.org/en/home)
