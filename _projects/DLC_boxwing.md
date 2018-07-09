@@ -30,8 +30,8 @@ permalink: /projects/DLC_boxwing/
 * Analyze flight data and conclude the experiment. 
 
 ## Challenges & Proposed Solutions
-### Challenges: Large computational consumptions
-
+### Challenges: Knowledge Gap
+There are numerous challenges and difficulties ocurred during the projects, but what most bothers is the knowledge gap. The 
 
 ### Proposed Solutions:
 #### Momentum Source Concept
