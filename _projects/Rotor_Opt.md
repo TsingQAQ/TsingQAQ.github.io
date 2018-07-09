@@ -77,3 +77,7 @@ Notes
 ## Projects Outcome&Highlights
 
 ![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/RO/3nd%20propeller.png?raw=true)
+
+![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/RO/inexp2.JPG?raw=true)
+
+
