@@ -75,9 +75,10 @@ Notes
 
 
 ## Projects Outcome&Highlights
-
+Optimal propeller on our third generation double ducted fan
 ![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/RO/3nd%20propeller.png?raw=true)
 
+We're in the experiments
 ![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/RO/inexp2.JPG?raw=true)
 
 
