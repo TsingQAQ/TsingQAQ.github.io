@@ -13,23 +13,23 @@ author_profile: True
 
 ## Backgrounds
 
-Ducted fan is a configurtaion propeller mounted in a duct so that a thrust augmentation can be obtained. Also, the existence of the duct brings with extra advantages like improved safety and low noise. These configurations have been propsed and developed for more than half a century and still shows growing concern on many appilacations, like <a href="https://en.wikipedia.org/wiki/Micro_air_vehicle"><font color="blue">MAV</font></a>, <a href="https://en.wikipedia.org/wiki/Flying_car"><font color="blue">flying cars</font></a> and fan in wing configurations.
+Ducted fan is the kind of configuration that a propeller mounted in a duct so that a thrust augmentation can be obtained. Whats more, the existence of the duct brings with extra advantages like improved safety and reduced noise. This configuration has been propsed and developed for more than half a century and still shows growing concern on many appilacations, like <a href="https://en.wikipedia.org/wiki/Micro_air_vehicle"><font color="blue">MAV</font></a>, <a href="https://en.wikipedia.org/wiki/Flying_car"><font color="blue">flying cars</font></a> and fan in wing configurations.
   
-Our lab's second generation double ducted aircrafts flies smoothly in the air, while the main drawback of this aircrafts is the two blade commercial propeller which was used for fixed wing aircrafts, this low efficienct propeller significantly affect the endurance time of the aircrafts. In order to prolong the time in air and fly above 4000 meters elevation, a design optimization of propellers was carried out.
+Our lab's second generation double ducted aircrafts flies smoothly in the air, while the main drawback of this aircrafts comes from the two blade commercial propeller which was used for fixed wing aircrafts, this less efficienct propeller significantly affect the endurance time of the aircrafts. In order to prolong the time in air and make it fly above an elevation of 4000, a design optimization of propellers was carried out.
 
 ![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/RO/double%20ducted%20fan.png?raw=true)
 
 ## Role&Responsibility
 
-* design and conduct a force&moment test to validate the computational fluid dynamics (CFD) methods
-* build an optimization processes and validate the code through numerical benchmark functions
-* construct the main optimization framework
-* Sensitivity analysis of the optimize output
+* Design and conduct a force&moment test to validate the computational fluid dynamics (CFD) methods
+* Build an optimization processes and validate the code through <a href="https://en.wikipedia.org/wiki/Test_functions_for_optimization"><font color="blue">numerical benchmark functions</font></a>
+* Construct the main optimization framework
+* Conduct sensitivity analysis of the optimal output
 
 ## Challenges & Proposed Solutions
 ### Challenges: Large computational consumptions
 
-While providing a relative accurate results, a cruicial deficiency of CFD is the large computational consumption, i.e, long time to run. And the consumption are directly related to the grids number, a typical calculation will last hours to days, even on workstation or cluster. Which means that a traditional global optimization methods like GA, PSO is imposible for the large number of function calls.
+While providing a relative accurate results, a cruicial deficiency of CFD is the large computational consumption, i.e, long time to run. The expense of computation is directly related to the grids number: a typical calculation will last hours to days on workstation or cluster. Which means that traditional global optimization methods like GA, PSO are imposible to handle this questions for the large number of function calls.
 
 ### Proposed Solutions:
 #### Momentum Source Conecept
