@@ -31,10 +31,11 @@ permalink: /projects/DLC_boxwing/
 
 ## Challenges & Proposed Solutions
 ### Challenges: Knowledge Gap
-There are numerous challenges and difficulties ocurred during the projects, but what most bothers is the knowledge gap. The 
+While numerous challenges and difficulties ocurred during the projects, the most bothering one is the knowledge gap. The projects started when we were sophomores, as the curriculums relating to aircraft design would comming at next year, we could not expect to acquire relative knowledges from these courses or the project process will be delayed.
 
 ### Proposed Solutions:
-#### Momentum Source Concept
+#### People and Papers!
+
  
 
 #### Gradient Based (Adjoint) Methods
