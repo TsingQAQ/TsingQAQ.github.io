@@ -34,8 +34,10 @@ permalink: /projects/DLC_boxwing/
 While numerous challenges and difficulties ocurred during the projects, the most bothering one is the knowledge gap. The projects started when we were sophomores, as the curriculums relating to aircraft design would comming at next year, we could not expect to acquire relative knowledges from these courses or the project process will be delayed.
 
 ### Proposed Solutions:
-#### People and Papers!
+#### Learn and Ask!
+We've desided to recruit a pupil who had experience in either design or building aircrts, and finally we invited Mei to be one of our teammates, mei was also a sophomore at that time but he had joined our school's model aircraft club, and was exerienced in building model aircrafts. Mei was very enthusiastic and gave us many practical ideas on how to build a flyable aircrafts.
 
+Besides, we decided to learn from books and thesis to see how to build an aircrafts. And ask for help from our project memtor.
  
 
 #### Gradient Based (Adjoint) Methods
