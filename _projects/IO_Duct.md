@@ -13,4 +13,6 @@ tags:
   - category2
 ---
 
-Notes: The projects related paper is currently under review, more information will coming soon:)
+Notes: The projects related paper is currently under review, more information will coming soon:)  
+a href="https://tsingqaq.github.io/projects/"><font color="blue">Go back and take a look at other projects</font></a>
+
