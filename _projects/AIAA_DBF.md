@@ -49,7 +49,7 @@ As illustrated bellow, the whole optimization process was built as a case in PyA
 ![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/AIAA_DBF/framework.png?raw=true)
 Also, the formulation of geometry paramters are rubost enough so that all the two wings confirguation, such as tandem wing and carnard wing, are included in the design space.
 A glance of optimization candidates is shown below:
-
+![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/AIAA_DBF/Cache_-15ef085eaef1c9e6..jpg?raw=true)
 
 ## Projects Outcome&Highlights
 Test Fly:
