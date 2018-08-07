@@ -46,12 +46,12 @@ A simple but effective control method was constructed as follows. Thanks to the 
 As shown in the figure, DLC control do affect the climb rate of the aircraft, though the effect is subtle compared with the original trajectory.
 ![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/DLC/123.jpg?raw=true)
 ## Projects Outcome&Highlights
-It was shown that the DFC for box wing aircraft has potential values for overload controls like gust alleviation, while it has limited capablity to change the trajectory of the aircraft as the control force will soon be cancelled out by the change of aircraft angle of attack.
 
-## Final thoughts
 parameter identification: dynamic derivatives identification of after wing alerons 
 ![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/DLC/%E6%B0%94%E5%8A%A8%E8%BE%A8%E8%AF%86.jpg?raw=true)
 boxwing in flight
 ![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/DLC/in%20flight.png?raw=true)
 teams
 ![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/DLC/340345738520796829.jpg?raw=true)
+## Final thoughts
+It was shown that the DFC for box wing aircraft has potential values for overload controls like gust alleviation, while it has limited capablity to change the trajectory of the aircraft as the control force will soon be cancelled out by the change of aircraft angle of attack.
