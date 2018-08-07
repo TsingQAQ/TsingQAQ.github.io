@@ -11,7 +11,7 @@ If you have questions or would like to get in touch regarding my research, do no
 Publications
 ======
 
-**Jixiang Qing**, Hu Yu, Yanling Wang, Zhonghuan Liu, Xuyang Fu (2018), “Computational Investigation of the Integrated Rotor-Duct Optimization for Ducted Fan in Hover”, **[First author, Under Review]**
+**Jixiang Qing**, Hu Yu, Yanling Wang, Zhonghuan Liu, Xuyang Fu (2018), “Computational Investigation of the Integrated Rotor-Duct Optimization for Ducted Fan in Hover” Aerospace Science and Technology, **[First author, Under Review]**
 
 
 Conference proceedings
