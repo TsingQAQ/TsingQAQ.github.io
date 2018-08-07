@@ -38,11 +38,13 @@ While numerous challenges and difficulties ocurred during the projects, the most
 We've decided to recruit a pupil who had experience in either design or building aircrts, and finally we invited Mei to be one of our teammates, Mei was also a sophomore at that time but he had joined our school's model aircraft club, and was experienced in building model aircrafts. Mei was very enthusiastic and gave us many practical ideas on how to build a flyable aircrafts.
 
 Besides, we decided to learn from books and thesis to see how to build an aircrafts. And ask for help from our project memtor.
-
-
+![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/DLC/in%20flight.png?raw=true)
+![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/DLC/%E6%B0%94%E5%8A%A8%E8%BE%A8%E8%AF%86.jpg?raw=true)
+![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/DLC/%E6%8E%A7%E5%88%B6%E4%BA%86.png?raw=true)
+![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/DLC/123.jpg?raw=true)
 ## Projects Outcome&Highlights
 
 
 ## Final thoughts
-
-
+teams
+![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/DLC/340345738520796829.jpg?raw=true)
