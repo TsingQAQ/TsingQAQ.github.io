@@ -4,7 +4,7 @@ collection: projects
 layout: archive
 date: 2016-05-11
 author_profile: True
-excerpt: Box wing aircraft have several appealing advanteages like siginicantlty reduced wingspan and more compact wing structures. Besides, the existence of the two wings have also introduces the capability of direct lift control(DLC). To explore the potential value of this and gain knowledges about box wing design. a team was built and a <a href="https://baike.baidu.com/item/%E5%9B%BD%E5%AE%B6%E5%A4%A7%E5%AD%A6%E7%94%9F%E5%88%9B%E6%96%B0%E6%80%A7%E5%AE%9E%E9%AA%8C%E8%AE%A1%E5%88%92 ">National University Student Innovation Program</a> was applied to fund the research. Several box wing aircrafts was design and built. A DFC control Law was also designed by parametric identifications based on flight tests. DFC flight tests were performed and the data was analyzed. It was shown that the DFC for box wing aircraft has potential values for overload controls like gust alleviation, while it has limited capablity to change the trajectory of the aircraft as the control force will soon be cancelled out by the change of aircraft angle of attack. **[read more](/projects/DLC_boxwing/)**
+excerpt: Box wing aircraft have several appealing advanteages like siginicantlty reduced wingspan and more compact wing structures. Besides, the existence of the two wings have also introduced the capability of direct lift control(DLC). To explore the potential value of this and gain knowledges about box wing design, a team was built and a <a href="https://baike.baidu.com/item/%E5%9B%BD%E5%AE%B6%E5%A4%A7%E5%AD%A6%E7%94%9F%E5%88%9B%E6%96%B0%E6%80%A7%E5%AE%9E%E9%AA%8C%E8%AE%A1%E5%88%92 ">National University Student Innovation Program</a> was applied to fund the research. Several box wing aircrafts was design and built. A DFC control Law was also designed by parametric identifications based on flight tests. DFC flight tests were performed and the data was analyzed. It was shown that the DFC for box wing aircraft has potential values for overload controls like gust alleviation, while it has limited capablity to change the trajectory of the aircraft as the control force will soon be cancelled out by the change of aircraft angle of attack. **[read more](/projects/DLC_boxwing/)**
 permalink: /projects/DLC_boxwing/
 ---
 
@@ -35,25 +35,13 @@ While numerous challenges and difficulties ocurred during the projects, the most
 
 ### Proposed Solutions:
 #### Learn and Ask!
-We've desided to recruit a pupil who had experience in either design or building aircrts, and finally we invited Mei to be one of our teammates, mei was also a sophomore at that time but he had joined our school's model aircraft club, and was exerienced in building model aircrafts. Mei was very enthusiastic and gave us many practical ideas on how to build a flyable aircrafts.
+We've decided to recruit a pupil who had experience in either design or building aircrts, and finally we invited Mei to be one of our teammates, Mei was also a sophomore at that time but he had joined our school's model aircraft club, and was experienced in building model aircrafts. Mei was very enthusiastic and gave us many practical ideas on how to build a flyable aircrafts.
 
 Besides, we decided to learn from books and thesis to see how to build an aircrafts. And ask for help from our project memtor.
- 
-
-#### Gradient Based (Adjoint) Methods
-
-
-#### Surrogate Based Optimization
-
-
-
-## Optimization Framework
-
-### optimization problems
-
 
 
 ## Projects Outcome&Highlights
+
 
 ## Final thoughts
 
