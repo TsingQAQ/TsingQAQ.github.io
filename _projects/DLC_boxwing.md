@@ -38,13 +38,20 @@ While numerous challenges and difficulties ocurred during the projects, the most
 We've decided to recruit a pupil who had experience in either design or building aircrts, and finally we invited Mei to be one of our teammates, Mei was also a sophomore at that time but he had joined our school's model aircraft club, and was experienced in building model aircrafts. Mei was very enthusiastic and gave us many practical ideas on how to build a flyable aircrafts.
 
 Besides, we decided to learn from books and thesis to see how to build an aircrafts. And ask for help from our project memtor.
-![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/DLC/in%20flight.png?raw=true)
-![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/DLC/%E6%B0%94%E5%8A%A8%E8%BE%A8%E8%AF%86.jpg?raw=true)
+
+### Control Law:
+A simple but effective control method was constructed as follows. Thanks to the test flight we were able to figure out the dynamic derivatives through system identification, and designed the control laws and simulate them in SIMULINKS. The aleron of fore wings and after wings were connected through a constant factor(i.e 0.7 in the following figure), and a PID algorithms were implemented to leave out the residuels and made aircraft stay level.
 ![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/DLC/%E6%8E%A7%E5%88%B6%E4%BA%86.png?raw=true)
+### DLC benefit
+As shown in the figure, DLC control do affect the climb rate of the aircraft, though the effect is subtle compared with the original trajectory.
 ![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/DLC/123.jpg?raw=true)
 ## Projects Outcome&Highlights
-
+It was shown that the DFC for box wing aircraft has potential values for overload controls like gust alleviation, while it has limited capablity to change the trajectory of the aircraft as the control force will soon be cancelled out by the change of aircraft angle of attack.
 
 ## Final thoughts
+parameter identification: dynamic derivatives identification of after wing alerons 
+![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/DLC/%E6%B0%94%E5%8A%A8%E8%BE%A8%E8%AF%86.jpg?raw=true)
+boxwing in flight
+![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/DLC/in%20flight.png?raw=true)
 teams
 ![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/DLC/340345738520796829.jpg?raw=true)
