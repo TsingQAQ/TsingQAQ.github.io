@@ -27,7 +27,8 @@ redirect_from:
 
 ## Certificates
 ### Courses 
-
+* [Bayesian Statistics: From Concept to Data Analysis by University of California, Santa Cruz
+ on Coursera Certificate](https://www.coursera.org/account/accomplishments/certificate/FH93P5LXLF8U)  
 * [Robotics: Aerial Robotics by Pennsylvania State University on Coursera Certificate](https://www.coursera.org/account/accomplishments/certificate/8XW3B8GW9CG6)
 * "The Way to Success" Career & Leadership Development Program by [CEO global](http://en.ceoglobal.org/)
 * [Inspiring and Motivating Individuals by University of Michigan on Coursera Certificate](https://www.coursera.org/account/accomplishments/certificate/YDXM3CDHFA2C)
