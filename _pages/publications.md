@@ -16,4 +16,4 @@ Publications
 
 Conference proceedings
 ======
-**Jixiang Qing**, HuYu (2018), “Computational Investigation of the Integrated Rotor-Duct Optimization for Ducted Fan in Hover” AIAA SciTech 2019, **[First author, Presenter, Under Review]**
+**Jixiang Qing**, HuYu, Yanling Wang, Zhonghuan Liu, Xuyang Fu, “Computational Investigation of the Integrated Rotor-Duct Optimization for Ducted Fan in Hover” AIAA Science and Technology Forum and Exposition 2019, **[accepted for presentation]**
