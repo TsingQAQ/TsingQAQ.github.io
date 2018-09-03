@@ -9,6 +9,7 @@ redirect_from:
 
 
 ## Honors and awards
+*	The 4th Postgraduate Future Aircraft Vehicle Design Competition First Prize Aug.2018
 *  The 3rd Postgraduate Future Aircraft Vehicle Design Competition Second Prize Aug.2017 
 * Airbus 2015 ‘Fly Your Ideas’ global university student’s aerospace innovation competition Finalists (the only team consisted of all bachelors) May.2015 
 * The 9th 'Innovation Cup' National Future Aircraft Designing Contest Third Prize Oct.2014
