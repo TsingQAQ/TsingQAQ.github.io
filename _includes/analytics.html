@@ -3,6 +3,15 @@
 {% case site.analytics.provider %}
 {% when "google" %}
   {% include /analytics-providers/google.html %}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125734646-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125734646-1');
+</script>
 {% when "google-universal" %}
   {% include /analytics-providers/google-universal.html %}
 {% when "custom" %}
