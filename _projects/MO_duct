@@ -1,0 +1,17 @@
+---
+layout: archive
+collection: projects
+title: Multi-objective Surrogate Optimization of Duct fan 
+collection: projects
+date: 2018-11-15
+permalink: /projects/MO_duct/
+author_profile: True
+excerpt: A multi-objective and multi-disciplinary optimization of ducted fan was carried out, some interesting results were found. **[read more](/projects/MO_duct/)**
+tags:
+  - cool posts
+  - category1
+  - category2
+---
+
+Note: Currently the paper about this project is undergoing final ammending, fun things will comming out soon!  
+<a href="https://tsingqaq.github.io/projects/"><font color="blue">Go back and take a look at other projects</font></a>
