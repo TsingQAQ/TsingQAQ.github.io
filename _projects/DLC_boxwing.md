@@ -8,7 +8,6 @@ permalink: /projects/DLC_boxwing/
 ---
 
 
-## Blingbling: This page is under construction:)
 
 ![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/DLC/DLC.jpg?raw=true)
 
