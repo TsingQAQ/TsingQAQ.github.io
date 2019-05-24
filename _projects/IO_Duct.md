@@ -13,6 +13,6 @@ tags:
   - category2
 ---
 
-Please refer to this [link](https://arc.aiaa.org/doi/abs/10.2514/6.2019-0007) to read the paper about this project  
+Please follow <a href="https://arc.aiaa.org/doi/abs/10.2514/6.2019-0007"><font color="blue">this link</font></a> to read the paper about this project  
 <a href="https://tsingqaq.github.io/projects/"><font color="blue">Go back and take a look at other projects</font></a>
 
