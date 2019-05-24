@@ -37,5 +37,6 @@ redirect_from:
 
 
 ### Micellaneous
+* Music Performance：GRADE 8 Piano certificated by [ABRSM](https://gb.abrsm.org/en/home)
 * Music theory level 5 certficated by [ABRSM](https://gb.abrsm.org/en/home)
 * Piano level 10 certificated by [Chinese Musicians Association](http://www.chnmusic.org/)
