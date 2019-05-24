@@ -13,6 +13,6 @@ tags:
   - category2
 ---
 
-Notes: The projects related paper is currently under review, more information will coming soon:)  
+Please refer to this [link](https://arc.aiaa.org/doi/abs/10.2514/6.2019-0007) to read the paper about this project  
 <a href="https://tsingqaq.github.io/projects/"><font color="blue">Go back and take a look at other projects</font></a>
 
