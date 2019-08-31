@@ -10,7 +10,7 @@ If you have questions or would like to get in touch regarding my research, do no
 
 Journals
 ======
-
+Coming Soon :)
 
 Conference proceedings
 ======
