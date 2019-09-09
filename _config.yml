@@ -183,6 +183,9 @@ collections:
   projects:
     output: true
     permalink: /:collection/:path/
+  Open Cooperations:
+    output: true
+    permalink: /:collection/:path/
   talks:
     output: true
     permalink: /:collection/:path/
