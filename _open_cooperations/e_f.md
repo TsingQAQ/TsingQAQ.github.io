@@ -1,6 +1,6 @@
 ---
 layout: archive
-collection: open_coop
+collection: Open Cooperations
 title: An active learning method for feasible boundary search
 date: 2019/9/9
 permalink: /open_coop/e_f/
