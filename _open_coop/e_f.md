@@ -11,7 +11,7 @@ tags:
   - category1
   - category2
 ---
-
+![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/_open_coop/figures/e_f/T0.05_DOE_25_Se250.png?raw=true)
 Note: Current the relating paper hasn't been published or uploaded on arXiv, cooperation opens soon!
 
 
