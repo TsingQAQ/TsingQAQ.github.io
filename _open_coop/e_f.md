@@ -12,5 +12,6 @@ tags:
   - category2
 ---
 
+Note: Current the relating paper hasn't been published or uploaded on arXiv, cooperation opens soon!
 
 
