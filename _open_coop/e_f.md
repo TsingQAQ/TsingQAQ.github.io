@@ -13,7 +13,7 @@ tags:
 ---
 
 <div style="width:400px;">
-    <div style="float: left; width: 100px"> 
+    <div style="float: left; width: 80px"> 
         <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Ftsingqaq.github.io%2Fopen_coop%2Fe_f%2F&layout=button_count&size=large&width=76&height=28&appId" width="76" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>  
     </div>
     <div style="float: left; width: 100px"> 
