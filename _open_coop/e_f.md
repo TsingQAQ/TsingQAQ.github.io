@@ -14,6 +14,5 @@ tags:
 ![](https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/_open_coop/figures/e_f/T0.05_DOE_25_Se250.png?raw=true)
 Note: Current the relating paper hasn't been published or uploaded on arXiv, cooperation opens soon!
 
-<div class="fb-share-button" data-href="https://github.com/TsingQAQ/TsingQAQ.github.io/edit/master/_open_coop/e_f.md" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share On Facebook</a></div>
-
+<div class="fb-share-button" data-href="https://tsingqaq.github.io/open_coop/e_f/" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftsingqaq.github.io%2Fopen_coop%2Fe_f%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share on Facebook</a></div>
 
