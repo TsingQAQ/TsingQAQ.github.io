@@ -22,7 +22,7 @@ tags:
   <div style="float: left; width: 80px"> 
     <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site https://tsingqaq.github.io/open_coop/e_f/."
    title="Share by Email">
-  <img src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/email.png?raw=true", height="42"></a>
+  <img src="https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/images/email.png?raw=true", height="28"></a>
   </div>
 </div>
 
