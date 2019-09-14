@@ -22,8 +22,8 @@ tags:
   <div style="float: left; width: 100px"> 
     <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site https://tsingqaq.github.io/open_coop/e_f/."
    title="Share by Email">
-  <img src="http://png-2.findicons.com/files/icons/573/must_have/48/mail.png">
-</a>
+  <img src="http://png-2.findicons.com/files/icons/573/must_have/48/mail.png"></a>
+  </dive>
 </div>
 
 <!--
