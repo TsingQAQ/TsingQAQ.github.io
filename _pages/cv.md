@@ -1,11 +1,13 @@
 ---
 layout: archive
 title: "Curriculum Vitae"
-permalink: %/cv/
+permalink: /cv/
 author_profile: true
 redirect_from:
   - /resume
 ---
+
+
 <!--
 哈哈我是注释，不会在浏览器中显示。
 <p>A PDF format can be found <a href='https://github.com/TsingQAQ/TsingQAQ.github.io/blob/master/files/CV_Jixiang_Qing.pdf'><font color="blue">here</font></a></p>
@@ -20,6 +22,8 @@ A PDF format can be found [here](/files/CV_Jixiang_Qing.pdf){: .btn .btn--defaul
 {: .notice--success}
 -->
 
+<!--
 A PDF format can be found  <button type="button" class="btn btn-link">[here](/files/CV_Jixiang_Qing.pdf)</button>
-
 <embed src="/files/CV_Jixiang_Qing.pdf" width="800px" height="2100px" />
+-->
+Please contact me by email if you need a CV of me :)
