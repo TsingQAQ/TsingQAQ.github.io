@@ -26,4 +26,4 @@ A PDF format can be found [here](/files/CV_Jixiang_Qing.pdf){: .btn .btn--defaul
 A PDF format can be found  <button type="button" class="btn btn-link">[here](/files/CV_Jixiang_Qing.pdf)</button>
 <embed src="/files/CV_Jixiang_Qing.pdf" width="800px" height="2100px" />
 -->
-Please contact me by email if you need a CV of me :)
+Please email me if you need a CV or more information :)
