@@ -2,6 +2,7 @@
 title: "Open Cooperation"
 permalink: /open_coop/
 author_profile: True
+share: true
 ---
 
 > **"The path to greatness is along with others."**  
