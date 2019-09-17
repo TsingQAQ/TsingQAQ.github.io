@@ -3,6 +3,7 @@ permalink: /
 title: 
 excerpt: "About me"
 author_profile: true
+share: true
 redirect_from: 
   - /Qing/
   - /Qing.html
