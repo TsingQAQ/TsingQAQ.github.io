@@ -3,7 +3,7 @@ layout: archive
 title: "Publications"
 permalink: /publications/
 author_profile: true
-toc_sticky: true 
+share: true
 ---
 
 If you have questions or would like to get in touch regarding my research, do not hesitate to contact me.
