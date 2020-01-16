@@ -16,7 +16,7 @@ Coming Soon :)
 Conference proceedings
 ======
 **Jixiang Qing**, Nicolas Knudde, Ivo Couckuyt, Domenico Spina, Tom Dhaene, “Bayesian active learning for electromagnetic
-structure design” * European Conference on Antennas and Propagation 2020*, **[Accepted]**
+structure design” *European Conference on Antennas and Propagation 2020*, **[Accepted]**
 
 **Jixiang Qing**, HuYu, Yanling Wang, Zhonghuan Liu, Xuyang Fu, “Computational Investigation of the Integrated Rotor-Duct Optimization for Ducted Fan in Hover” *AIAA Science and Technology Forum and Exposition 2019*, **doi: 10.2514/6.2019-0007**
 
