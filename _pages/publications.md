@@ -36,9 +36,7 @@ structure design</a></div>
      </div>         
      <div>         
        <em>accepted for European Conference on Antennas and Propagation 2020</em> 
- <br> 
- 
-       %<a class="btn btn--success btn--small" href="http://lis.csail.mit.edu/pubs/xia-iclr19.pdf">PDF</a>         
+ <br>       
          
      </div>         
    </div>         
@@ -57,8 +55,6 @@ structure design</a></div>
      <div>         
        <em>AIAA SciTech Forum, 2019</em> 
  <br> 
- 
-       %<a class="btn btn--success btn--small" href="http://lis.csail.mit.edu/pubs/xia-iclr19.pdf">PDF</a>         
          
      </div>         
    </div>         
