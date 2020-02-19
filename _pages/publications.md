@@ -14,7 +14,7 @@ If you have questions or would like to get in touch regarding my research, do no
 
  <div class="publication">          
    <link rel="stylesheet" href="/assets/css/my.css">         
-   <div class="img"><a href="http://lis.csail.mit.edu/pubs/xia-iclr19.pdf"><img class="img_responsive" src="/images/pub/spare.png"></a></div>         
+   <div class="img"><a href=""><img class="img_responsive" src="https://github.com/TsingQAQ/Image-Lib/blob/master/figure_for_pwebsite/EM.png?raw=true" width="200" height="150"></a></div>         
    <div class="text">         
      <div class="title"><a name="xiaICLR2019" href="http://lis.csail.mit.edu/pubs/xia-iclr19.pdf">Bayesian active learning for electromagnetic
 structure design</a></div>         
