@@ -18,7 +18,7 @@ If you have questions or would like to get in touch regarding my research, do no
    <div class="text">         
      <div class="title"><a name="xiaICLR2019" href="http://lis.csail.mit.edu/pubs/xia-iclr19.pdf">Bayesian active learning for electromagnetic
 structure design</a></div>         
-     <div class="authors">**Jixiang Qing**, Nicolas Knudde, Ivo Couckuyt, Domenico Spina, Tom Dhaene        
+     <div class="authors">Jixiang Qing, Nicolas Knudde, Ivo Couckuyt, Domenico Spina, Tom Dhaene        
      </div>         
      <div>         
        <em>accepted for European Conference on Antennas and Propagation 2020</em> 
