@@ -35,7 +35,7 @@ structure design</a></div>
    <link rel="stylesheet" href="/assets/css/my.css">         
    <div class="img"><a href="http://lis.csail.mit.edu/pubs/xia-iclr19.pdf"><img class="img_responsive" src="https://github.com/TsingQAQ/Image-Lib/blob/master/figure_for_pwebsite/opt_history.png?raw=true" width="220" height="150"></a></div>         
    <div class="text">         
-     <div class="title"><a name="xiaICLR2019" href="http://lis.csail.mit.edu/pubs/xia-iclr19.pdf">Kriging Assisted Integrated Rotor-Duct Optimization for Ducted Fan in Hover</a></div>         
+     <div class="title"><a name="xiaICLR2019" href="https://arc.aiaa.org/doi/abs/10.2514/6.2019-0007">Kriging Assisted Integrated Rotor-Duct Optimization for Ducted Fan in Hover</a></div>         
      <div class="authors">Jixiang Qing, Yu Hu, Yanling Wang, Zhonghuan Liu, Xuyang Fu and Wenmeng Liu        
      </div>         
      <div>         
