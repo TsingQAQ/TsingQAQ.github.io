@@ -9,6 +9,18 @@ share: true
 If you have questions or would like to get in touch regarding my research, do not hesitate to contact me.
 {: .notice--success}
 
+<div class="container">
+    <div class="row" style="padding:20px">
+        <div class="col-xs-13 col-sm-8 col-md-8">
+            <div class="row"><a name="papers"></a>
+                <hr class="bigHr">
+                <center><h3><font color=#000000>Preprints</font> - <font color=#D32011>Publications</font> - <font color=#007A36> Manuscripts</font></h3></center>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>
+
 ## 2020
 
 <div class="publication">
