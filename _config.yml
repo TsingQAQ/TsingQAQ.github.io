@@ -188,7 +188,7 @@ collections:
   projects:
     output: true
     permalink: /:collection/:path/
-  open_coop:
+  coop:
     output: true
     permalink: /:collection/:path/
   talks:

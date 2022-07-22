@@ -6,8 +6,8 @@ main:
   - title: "Projects"
     url: /projects/
   
-  - title: "Open Cooperations"
-    url: /open_coop/
+  - title: "Collaboration"
+    url: /coop/
     
   # 2018/6/29 新增
   - title: "Awards"
