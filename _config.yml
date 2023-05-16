@@ -73,9 +73,9 @@ social:
 
 # Analytics
 analytics:
-  provider               :  "google-universal" # false (default), "google", "google-universal", "custom"
+  provider               :  "google-analytics-4"  # "google-universal" # false (default), "google", "google-universal", "custom"
   google:
-    tracking_id          : UA-125734646-1
+    tracking_id          : G-LNC06VY2F8 # UA-125734646-1 # according to https://github.com/academicpages/academicpages.github.io/pull/1183/commits/96d1b6e3341151934efaa1fa0b93183cd07aa77f
 
 
 # Site Author
