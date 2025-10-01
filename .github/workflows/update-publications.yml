@@ -101,10 +101,10 @@ jobs:
     
     - name: Upload publications as artifact
       if: always()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: publications-data
         path: |
           publications.json
-          publications_manual.json
+          manual_urls.json
         retention-days: 30
