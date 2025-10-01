@@ -203,6 +203,7 @@
             $('main').css('display', 'block');
             $('main').css('transition', 'opacity 0.3s ease-in-out');
             $('main').css('opacity', '1');
+
             console.log('Complete page now visible - static-like experience');
         }
         
@@ -551,6 +552,15 @@
                     min-height: auto !important;
                     transition: none !important;
                 }
+                /* Simple FOUC prevention - start with only highlights visible */
+                .list-item {
+                    display: none;
+                }
+
+                .list-item.highlight {
+                    display: block;
+                }
+
                 .js-hidden {
                     display: none !important;
                 }
