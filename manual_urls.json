@@ -1,0 +1,9 @@
+{
+  "manual_urls": {
+    "System-Aware Neural ODE Processes for Few-Shot Bayesian Optimization": "https://arxiv.org/abs/2406.02352",
+    "Molecular design using graph Bayesian optimization with shortest-path kernels": "https://openreview.net/forum?id=Ilhq4ocWcb&referrer=%5Bthe%20profile%20of%20Ruth%20Misener%5D(%2Fprofile%3Fid%3D~Ruth_Misener1)",
+    "A robust bayesian optimization framework for microwave circuit design under uncertainty": "https://www.mdpi.com/2079-9292/11/14/2267",
+    "Spectral representation of robustness measures for optimization under input uncertainty": "https://proceedings.mlr.press/v162/qing22a.html",
+    "Bayesian active learning for engineering design and optimization under uncertainty": "https://biblio.ugent.be/publication/01HJ66C89RV150K3SEE3PGBQ6R"
+  }
+}

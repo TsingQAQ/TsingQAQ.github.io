@@ -1,0 +1,78 @@
+{
+  "pf2es_parallel_feasible_2023": {
+    "media": {
+      "type": "image",
+      "url": "images/aistats2023_thumnail.png",
+      "description": "PF²ES algorithm visualization showing parallel feasible Pareto frontier entropy search"
+    },
+    "custom_description": "Our novel information-theoretic acquisition function for multi-objective Bayesian optimization with unknown constraints and batch queries.",
+    "links": [
+      {"text": "Paper", "url": "https://proceedings.mlr.press/v206/qing23a.html"},
+      {"text": "Presentation", "url": "https://www.youtube.com/watch?v=Q_c11dsA9ZE"},
+      {"text": "Code", "url": "https://github.com/TsingQAQ/trieste/tree/PF2ES_preview_notebook"}
+    ],
+    "tags": ["bayesian-optimization", "multi-objective", "constraints", "information-theory"],
+    "featured": true
+  },
+  "spectral_representation_robustness_2022": {
+    "media": {
+      "type": "image", 
+      "url": "images/rmo_thumbnail.png",
+      "description": "Spectral representation approach for robust optimization under input uncertainty"
+    },
+    "custom_description": "A novel spectral approach to robustness measures in optimization under input uncertainty using Gaussian processes.",
+    "links": [
+      {"text": "Paper", "url": "https://proceedings.mlr.press/v162/qing22a.html"},
+      {"text": "Presentation", "url": "https://icml.cc/virtual/2022/spotlight/17742"},
+      {"text": "Poster", "url": "https://icml.cc/virtual/2022/poster/17741"},
+      {"text": "Code", "url": "https://github.com/TsingQAQ/gp_mean_var_rbo"}
+    ],
+    "tags": ["optimization", "uncertainty", "spectral-methods", "gaussian-processes"],
+    "featured": true
+  },
+  "adaptive_sampling_automatic_2021": {
+    "media": {
+      "type": "image",
+      "url": "images/progress_plot_benchmark1_final.png", 
+      "description": "Adaptive sampling progress on engineering design benchmark"
+    },
+    "tags": ["active-learning", "engineering-design", "feasible-region"],
+    "featured": false
+  },
+  "_template_for_new_papers": {
+    "_comment": "Copy this template when you want to add manual enhancements for new papers",
+    "media": {
+      "type": "video|gif|image",
+      "url": "images/your_media_file.mp4",
+      "thumbnail": "images/thumbnail.png",
+      "description": "Description of the media content"
+    },
+    "custom_description": "Override the auto-generated description",
+    "custom_venue": "Override venue name if needed",
+    "custom_authors": "Override authors if needed",
+    "links": [
+      {"text": "Paper", "url": "link_to_paper"},
+      {"text": "Code", "url": "link_to_code"},
+      {"text": "Demo", "url": "link_to_demo"}
+    ],
+    "tags": ["tag1", "tag2", "tag3"],
+    "featured": true
+  },
+  "_manual_only_example": {
+    "_comment": "Example of a completely manual publication entry",
+    "manual_only": true,
+    "title": "Example Manual Publication",
+    "authors": "Jixiang Qing, Collaborators",
+    "year": "2024",
+    "venue": "Future Conference",
+    "url": "https://example.com",
+    "abstract": "This is an example of a manually added publication",
+    "media": {
+      "type": "gif",
+      "url": "images/manual_example.gif",
+      "description": "Custom visualization for manual entry"
+    },
+    "tags": ["manual", "example"],
+    "featured": false
+  }
+}

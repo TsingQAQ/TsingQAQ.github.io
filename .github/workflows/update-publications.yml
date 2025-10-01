@@ -1,0 +1,110 @@
+name: Update Publications Weekly
+
+on:
+  # Run weekly on Sundays at 2 AM UTC
+  schedule:
+    - cron: '0 2 * * 0'
+
+  # Allow manual triggering from GitHub Actions tab
+  workflow_dispatch:
+
+jobs:
+  update-publications:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        # Need full history to commit back
+        fetch-depth: 0
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests beautifulsoup4
+
+    - name: Create backup of current publications
+      run: |
+        cp publications.json publications_backup_$(date +%Y%m%d).json || echo "No existing publications.json to backup"
+
+    - name: Generate publications from Google Scholar
+      run: |
+        echo "Running simple publication update script..."
+        python generate_publications_simple.py
+
+    - name: Validate JSON output
+      run: |
+        # Validate the generated JSON
+        python -m json.tool publications.json > /dev/null
+        echo "✅ JSON validation passed"
+    
+    - name: Check if publications were updated
+      id: check_changes
+      run: |
+        if [ -f publications.json ]; then
+          echo "Publications file exists"
+          if git diff --quiet publications.json; then
+            echo "No changes to publications"
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "Publications have changed"
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+        else
+          echo "Publications file not found"
+          echo "changed=false" >> $GITHUB_OUTPUT
+        fi
+    
+    - name: Commit and push if changed
+      if: steps.check_changes.outputs.changed == 'true'
+      run: |
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add publications.json
+        git add manual_urls.json || echo "manual_urls.json not found"
+
+        # Create commit message
+        git commit -m "🤖 Auto-update publications.json - $(date '+%Y-%m-%d %H:%M UTC')
+
+        - Updated from Google Scholar data
+        - Manual URLs preserved from manual_urls.json"
+
+        # Push changes
+        git push
+    
+    - name: Create summary
+      if: always()
+      run: |
+        echo "## 📚 Publication Update Summary" >> $GITHUB_STEP_SUMMARY
+        echo "- **Workflow triggered:** ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
+        echo "- **Run time:** $(date -u)" >> $GITHUB_STEP_SUMMARY
+        
+        if [ -f publications.json ]; then
+          TOTAL_PUBS=$(python -c "import json; data=json.load(open('publications.json')); print(data['total_publications'])")
+          echo "- **Total publications found:** $TOTAL_PUBS" >> $GITHUB_STEP_SUMMARY
+          echo "- **Last updated:** $(python -c "import json; data=json.load(open('publications.json')); print(data['last_updated'])")" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "- **Status:** ❌ Failed to generate publications.json" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+        if [ "${{ steps.check_changes.outputs.changed }}" == "true" ]; then
+          echo "- **Changes:** ✅ Publications updated and committed" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "- **Changes:** ⚪ No updates needed" >> $GITHUB_STEP_SUMMARY
+        fi
+    
+    - name: Upload publications as artifact
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: publications-data
+        path: |
+          publications.json
+          publications_manual.json
+        retention-days: 30
