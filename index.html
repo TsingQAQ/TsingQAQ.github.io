@@ -81,7 +81,7 @@
             <div id="main-highlights">
                 <div class="list-item highlight" data-category="highlight">
                     <p class="date">2025</p>
-                    <i class="fas fa-graduation-cap news-icon"></i> MARS funded PhD programmes for 2026 are open - check out <a href="https://www.lancaster.ac.uk/maths/research/mars/phds/mars-indicative-phd-projects/" target="_blank">here</a> for work together opportunities
+                    <i class="fas fa-graduation-cap news-icon"></i> MARS funded PhD programmes for 2026 are open - check out <a href="https://www.lancaster.ac.uk/maths/research/mars/phds/mars-indicative-phd-projects/" target="_blank" onclick="gtag('event', 'recruitment_click', {'event_category': 'Recruitment', 'event_label': 'PhD_2026_MARS'});">here</a> for work together opportunities
                 </div>
 
                 <div class="list-item highlight" data-category="highlight">
@@ -297,18 +297,29 @@
             $('#filters').on('click', 'button', function () {
                 var filterValue = $(this).attr('data-filter');
                 console.log('Tab clicked:', filterValue);
-                
+
+                // Track filter click in Google Analytics
+                if (typeof gtag !== 'undefined') {
+                    const filterName = $(this).text().trim(); // Get button text (News, Publications, Talks, MISC)
+                    gtag('event', 'filter_click', {
+                        'event_category': 'Navigation',
+                        'event_label': filterName,
+                        'filter_type': filterValue
+                    });
+                    console.log('GA event sent: filter_click -', filterName);
+                }
+
                 // Use CSS classes for better control
                 $('.grid .list-item').addClass('js-hidden').removeClass('js-visible');
                 console.log('All items hidden');
-                
+
                 // Show only the selected type
                 const selector = '.grid ' + filterValue;
                 console.log('Showing selector:', selector);
                 console.log('Items matching selector:', $(selector).length);
-                
+
                 $(selector).removeClass('js-hidden').addClass('js-visible');
-                
+
                 console.log('Items now visible:', $('.grid .list-item:visible').length);
             });
             
@@ -1007,6 +1018,108 @@
                 fullEl.style.display = 'block';
             }
         };
+
+        // Track all external link clicks
+        $(document).ready(function() {
+            // Track social media button clicks
+            $('.social-buttons a').on('click', function() {
+                if (typeof gtag !== 'undefined') {
+                    const linkText = $(this).text().trim();
+                    const linkUrl = $(this).attr('href');
+                    gtag('event', 'social_link_click', {
+                        'event_category': 'Social Media',
+                        'event_label': linkText,
+                        'link_url': linkUrl
+                    });
+                    console.log('GA event: social_link_click -', linkText);
+                }
+            });
+
+            // Track publication title clicks (dynamically added)
+            $(document).on('click', '.publication-details a', function() {
+                if (typeof gtag !== 'undefined') {
+                    const publicationTitle = $(this).text().trim();
+                    const linkUrl = $(this).attr('href');
+                    gtag('event', 'publication_click', {
+                        'event_category': 'Publications',
+                        'event_label': publicationTitle,
+                        'link_url': linkUrl
+                    });
+                    console.log('GA event: publication_click -', publicationTitle);
+                }
+            });
+
+            // Track other external links in intro section
+            $('#intro-text a').on('click', function() {
+                if (typeof gtag !== 'undefined') {
+                    const linkText = $(this).text().trim();
+                    const linkUrl = $(this).attr('href');
+                    gtag('event', 'bio_link_click', {
+                        'event_category': 'Bio Links',
+                        'event_label': linkText,
+                        'link_url': linkUrl
+                    });
+                    console.log('GA event: bio_link_click -', linkText);
+                }
+            });
+
+            // Track talk links
+            $(document).on('click', '.list-item.talk a', function() {
+                if (typeof gtag !== 'undefined') {
+                    const linkText = $(this).text().trim();
+                    const linkUrl = $(this).attr('href');
+                    gtag('event', 'talk_link_click', {
+                        'event_category': 'Talks',
+                        'event_label': linkText,
+                        'link_url': linkUrl
+                    });
+                    console.log('GA event: talk_link_click -', linkText);
+                }
+            });
+
+            // Track MISC/project section links
+            $(document).on('click', '.list-item.project a', function() {
+                if (typeof gtag !== 'undefined') {
+                    const linkText = $(this).text().trim();
+                    const linkUrl = $(this).attr('href');
+                    gtag('event', 'misc_link_click', {
+                        'event_category': 'MISC',
+                        'event_label': linkText,
+                        'link_url': linkUrl
+                    });
+                    console.log('GA event: misc_link_click -', linkText);
+                }
+            });
+
+            // Track news/highlight section links
+            $(document).on('click', '.list-item.highlight a', function() {
+                if (typeof gtag !== 'undefined') {
+                    const linkText = $(this).text().trim();
+                    const linkUrl = $(this).attr('href');
+
+                    // Check if this is the PhD recruitment link
+                    const isRecruitmentLink = linkUrl.includes('mars-indicative-phd-projects') ||
+                                            linkText.toLowerCase().includes('phd') ||
+                                            $(this).closest('.list-item').text().includes('PhD programmes');
+
+                    if (isRecruitmentLink) {
+                        gtag('event', 'recruitment_click', {
+                            'event_category': 'Recruitment',
+                            'event_label': linkText,
+                            'link_url': linkUrl
+                        });
+                        console.log('GA event: recruitment_click -', linkText);
+                    } else {
+                        gtag('event', 'news_link_click', {
+                            'event_category': 'News',
+                            'event_label': linkText,
+                            'link_url': linkUrl
+                        });
+                        console.log('GA event: news_link_click -', linkText);
+                    }
+                }
+            });
+        });
     </script>
 
 </body>
