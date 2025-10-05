@@ -27,7 +27,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install requests beautifulsoup4 google-generativeai PyPDF2
+        pip install requests beautifulsoup4 google-generativeai PyPDF2 scholarly
 
     - name: Create backup of current publications
       run: |
@@ -71,15 +71,17 @@ jobs:
         git config --local user.name "github-actions[bot]"
         git add publications.json
         git add manual_urls.json || echo "manual_urls.json not found"
+        git add manual_abstracts.json || echo "manual_abstracts.json not found"
 
         # Create commit message with safety info
         git commit -m "🤖 Auto-update publications.json - $(date '+%Y-%m-%d %H:%M UTC')
 
-        - Updated from Google Scholar data via SerpAPI
+        - Updated from Google Scholar data via SerpAPI (correct chronological order)
         - TL;DR generated via Gemini API (from full PDF if available, otherwise abstract)
         - Supports arXiv, OpenReview, and other open access sources
         - Safety checks passed (minimum 15 publications)
-        - Manual URLs preserved from manual_urls.json"
+        - Manual URLs preserved from manual_urls.json
+        - Manual abstracts preserved from manual_abstracts.json"
 
         # Push changes
         git push
@@ -113,4 +115,5 @@ jobs:
         path: |
           publications.json
           manual_urls.json
+          manual_abstracts.json
         retention-days: 30

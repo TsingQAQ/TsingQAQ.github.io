@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
 Enhanced publication script with:
-- SerpAPI support for reliable scraping
+- scholarly library for reliable Google Scholar scraping
 - Automatic arXiv/DOI URL extraction from publication metadata
-- Abstract and URL extraction from Google Scholar detail pages
+- Abstract extraction using scholarly library (anti-blocking)
 - Hierarchical TL;DR generation via Gemini API:
   1. Full PDF text (arXiv, OpenReview, etc.) → Best quality TL;DR
   2. Abstract from Google Scholar → Good quality TL;DR
@@ -23,6 +23,14 @@ import sys
 import io
 
 # Try to import required libraries
+try:
+    from scholarly import scholarly
+    SCHOLARLY_AVAILABLE = True
+except ImportError:
+    SCHOLARLY_AVAILABLE = False
+    print("WARNING: scholarly library not installed. Abstract fetching will be limited.")
+    print("         Install with: pip install scholarly")
+
 try:
     import google.generativeai as genai
     GEMINI_AVAILABLE = True
@@ -44,6 +52,34 @@ def clean_text(text):
     if not text:
         return ""
     return re.sub(r'\s+', ' ', text.strip())
+
+def fetch_abstract_from_arxiv(arxiv_id):
+    """Fetch abstract from arXiv API given an arXiv ID"""
+    try:
+        # arXiv API endpoint
+        api_url = f"http://export.arxiv.org/api/query?id_list={arxiv_id}"
+        response = requests.get(api_url, timeout=10)
+        response.raise_for_status()
+
+        # Parse XML response
+        from xml.etree import ElementTree as ET
+        root = ET.fromstring(response.content)
+
+        # Find abstract in the response
+        # arXiv API returns Atom XML format
+        namespace = {'atom': 'http://www.w3.org/2005/Atom'}
+        entry = root.find('atom:entry', namespace)
+        if entry is not None:
+            summary = entry.find('atom:summary', namespace)
+            if summary is not None and summary.text:
+                abstract = clean_text(summary.text)
+                safe_print(f"  [OK] Fetched abstract from arXiv API ({len(abstract)} chars)")
+                return abstract
+
+        return ""
+    except Exception as e:
+        print(f"  Warning: Could not fetch from arXiv API: {e}")
+        return ""
 
 def extract_paper_url_from_publication_info(pub_info, title):
     """Extract direct paper URL from publication info (arXiv ID, DOI, etc.)"""
@@ -249,6 +285,139 @@ def fetch_abstract_and_url(title_link_href, headers):
 
     return pub_url, abstract
 
+def extract_publications_scholarly(scholar_id="mE9l0sQAAAAJ", gemini_model=None):
+    """Extract publications using scholarly library (anti-blocking) with optional TL;DR generation"""
+    if not SCHOLARLY_AVAILABLE:
+        print("scholarly library not available, skipping")
+        return None
+
+    publications = []
+
+    try:
+        print("Fetching publications via scholarly library...")
+
+        # Search for author by ID
+        author = scholarly.search_author_id(scholar_id)
+        author_filled = scholarly.fill(author, sections=['basics', 'publications'])
+
+        pubs = author_filled.get('publications', [])
+        print(f"Found {len(pubs)} publications via scholarly")
+
+        if gemini_model:
+            print("TL;DR generation enabled via Gemini API")
+
+        for idx, pub in enumerate(pubs, 1):
+            try:
+                # Fill publication details (includes abstract!)
+                print(f"  [{idx}/{len(pubs)}] Fetching details for: {pub.get('bib', {}).get('title', 'Unknown')}")
+                pub_filled = scholarly.fill(pub)
+                bib = pub_filled.get('bib', {})
+
+                title = bib.get('title', '')
+                authors = bib.get('author', '')
+                year = bib.get('pub_year', None)
+                if year:
+                    try:
+                        year = int(year)
+                    except:
+                        year = None
+
+                # Get venue info
+                venue = bib.get('venue', '')
+                if not venue and bib.get('journal'):
+                    venue = bib.get('journal')
+                elif not venue and bib.get('conference'):
+                    venue = bib.get('conference')
+
+                # Get abstract and URL
+                abstract = bib.get('abstract', '')
+                pub_url = pub_filled.get('pub_url', '') or pub_filled.get('eprint_url', '')
+
+                # Try to get arXiv abstract if scholarly didn't get one
+                if not abstract:
+                    arxiv_match = re.search(r'arXiv[:\s]+(\d+\.\d+)', venue, re.IGNORECASE)
+                    if arxiv_match:
+                        arxiv_id = arxiv_match.group(1)
+                        time.sleep(0.3)
+                        abstract = fetch_abstract_from_arxiv(arxiv_id)
+                        if not pub_url:
+                            pub_url = f"https://arxiv.org/abs/{arxiv_id}"
+
+                # If still no URL, try to extract from publication info
+                if not pub_url:
+                    pub_url = extract_paper_url_from_publication_info(venue, title)
+
+                # Get citations
+                citations = pub_filled.get('num_citations', 0)
+
+                # Hierarchical TL;DR generation: 1) Full PDF, 2) Abstract, 3) Empty
+                tldr = ""
+                tldr_source = ""
+                if gemini_model:
+                    # Try to get full PDF text first
+                    full_text, is_full_paper = get_full_text_if_available(pub_url, title)
+                    if full_text:
+                        print(f"  [{idx}/{len(pubs)}] Generating TL;DR from full paper PDF")
+                        tldr = generate_tldr_with_gemini(title, full_text, gemini_model, is_full_paper=True)
+                        tldr_source = "full_paper"
+                        time.sleep(0.5)
+                    elif abstract:
+                        print(f"  [{idx}/{len(pubs)}] Generating TL;DR from abstract")
+                        tldr = generate_tldr_with_gemini(title, abstract, gemini_model, is_full_paper=False)
+                        tldr_source = "abstract"
+                        time.sleep(0.5)
+
+                has_abstract = 'Yes' if abstract else 'No'
+                has_url = 'Yes' if pub_url else 'No'
+                has_tldr = 'Yes' if tldr else 'No'
+                source_info = f" (from {tldr_source})" if tldr_source else ""
+                safe_print(f"[{idx}/{len(pubs)}] {title} ({year}) - Abstract: {has_abstract}, URL: {has_url}, TL;DR: {has_tldr}{source_info}")
+
+                # Create publication object
+                pub_id = re.sub(r'[^a-z0-9_]', '_', title.lower().replace(' ', '_'))[:50]
+                if year:
+                    pub_id += f"_{year}"
+
+                publication = {
+                    "id": pub_id,
+                    "title": title,
+                    "authors": authors,
+                    "year": year,
+                    "venue": venue,
+                    "tldr": tldr,
+                    "abstract": abstract,
+                    "url": pub_url,
+                    "citations": citations,
+                    "filled_manually": False,
+                    "media": None,
+                    "custom_description": None,
+                    "links": [],
+                    "tags": [],
+                    "featured": False
+                }
+
+                publications.append(publication)
+
+                # Rate limiting to be polite (reduced when not generating TL;DRs)
+                if gemini_model:
+                    time.sleep(1)  # Shorter delay since Gemini calls have delays
+                else:
+                    time.sleep(0.5)  # Very short delay when just fetching abstracts
+
+            except Exception as e:
+                print(f"  Error processing publication: {e}")
+                continue
+
+        # Don't sort here - we'll preserve Google Scholar's order
+        # (will be sorted by pubdate in the main function)
+        print(f"Fetched {len(publications)} publications")
+
+        return publications
+
+    except Exception as e:
+        print(f"Error fetching from scholarly: {e}")
+        return None
+
 def extract_publications_serpapi(scholar_id="mE9l0sQAAAAJ", api_key=None, gemini_model=None):
     """Extract publications using SerpAPI with optional TL;DR generation"""
     if not api_key:
@@ -293,20 +462,17 @@ def extract_publications_serpapi(scholar_id="mE9l0sQAAAAJ", api_key=None, gemini
 
             title = article.get("title", "")
 
+            # Try to extract arXiv ID from publication info for abstract fetching
+            abstract = ""
+            arxiv_match = re.search(r'arXiv[:\s]+(\d+\.\d+)', pub_info, re.IGNORECASE)
+            if arxiv_match:
+                arxiv_id = arxiv_match.group(1)
+                # Fetch abstract from arXiv API (reliable!)
+                time.sleep(0.3)  # Be polite to arXiv
+                abstract = fetch_abstract_from_arxiv(arxiv_id)
+
             # Extract direct paper URL from publication info (arXiv, DOI, etc.)
             pub_url = extract_paper_url_from_publication_info(pub_info, title)
-
-            # Try to get abstract from Google Scholar detail page
-            abstract = ""
-            citation_id = article.get("citation_id", "")
-            if citation_id:
-                detail_link = f"/citations?view_op=view_citation&citation_for_view={scholar_id}:{citation_id}"
-                fetched_url, fetched_abstract = fetch_abstract_and_url(detail_link, headers)
-                # Use fetched URL if we don't already have one
-                if fetched_url and not pub_url:
-                    pub_url = fetched_url
-                if fetched_abstract:
-                    abstract = fetched_abstract
 
             # Hierarchical TL;DR generation: 1) Full PDF, 2) Abstract, 3) Empty
             tldr = ""
@@ -431,14 +597,23 @@ def extract_publications_simple(scholar_id="mE9l0sQAAAAJ", fetch_details=True, g
                         except ValueError:
                             citations = 0
 
-                # Get publication link for detail fetching
+                # Get publication URL and abstract
                 pub_url = ""
                 abstract = ""
 
-                if fetch_details and title_link:
-                    pub_link = title_link.get('href')
-                    if pub_link:
-                        pub_url, abstract = fetch_abstract_and_url(pub_link, headers)
+                if fetch_details:
+                    # Try to extract arXiv ID from venue info
+                    arxiv_match = re.search(r'arXiv[:\s]+(\d+\.\d+)', venue, re.IGNORECASE)
+                    if arxiv_match:
+                        arxiv_id = arxiv_match.group(1)
+                        pub_url = f"https://arxiv.org/abs/{arxiv_id}"
+                        # Fetch abstract from arXiv API (reliable!)
+                        time.sleep(0.3)  # Be polite to arXiv
+                        abstract = fetch_abstract_from_arxiv(arxiv_id)
+
+                    # If no arXiv abstract, try extracting URL from publication info
+                    if not pub_url:
+                        pub_url = extract_paper_url_from_publication_info(venue, title)
 
                 # Hierarchical TL;DR generation: 1) Full PDF, 2) Abstract, 3) Empty
                 tldr = ""
@@ -532,18 +707,94 @@ def generate_simple_publications():
     else:
         print("No GEMINI_API_KEY found - skipping TL;DR generation")
 
-    # Try SerpAPI first (more reliable for automation)
-    serpapi_key = os.environ.get("SERPAPI_KEY")
+    # Load manual URLs
+    manual_urls = {}
+    if os.path.exists("manual_urls.json"):
+        try:
+            with open("manual_urls.json", 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                manual_urls = data.get("manual_urls", {})
+                print(f"Loaded {len(manual_urls)} manual URLs")
+        except Exception as e:
+            print(f"Warning: Could not read manual_urls.json: {e}")
+
+    # Load manual abstracts
+    manual_abstracts = {}
+    if os.path.exists("manual_abstracts.json"):
+        try:
+            with open("manual_abstracts.json", 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                manual_abstracts = data.get("manual_abstracts", {})
+                print(f"Loaded {len(manual_abstracts)} manual abstracts")
+        except Exception as e:
+            print(f"Warning: Could not read manual_abstracts.json: {e}")
+
+    # Strategy: SerpAPI only (scholarly gets blocked by Google Scholar)
+    # Abstracts come from: arXiv API + manual URLs (OpenReview, etc.)
     publications = None
+    serpapi_key = os.environ.get("SERPAPI_KEY")
 
     if serpapi_key:
-        print("Trying SerpAPI method...")
+        print("Fetching publications from SerpAPI (correct order with sortby=pubdate)...")
         publications = extract_publications_serpapi(api_key=serpapi_key, gemini_model=gemini_model)
 
-    # Fallback to direct scraping if SerpAPI fails or not available
+        # Apply manual URLs to get more abstracts/PDFs from OpenReview, etc.
+        if publications and manual_urls:
+            print("\nApplying manual URLs...")
+            for pub in publications:
+                if pub['title'] in manual_urls:
+                    old_url = pub.get('url', '')
+                    pub['url'] = manual_urls[pub['title']]
+                    print(f"Applied manual URL for: {pub['title']}")
+
+                    # Try to fetch abstract/PDF from the manual URL if we don't have it
+                    if not pub.get('abstract') and gemini_model:
+                        full_text, is_full_paper = get_full_text_if_available(pub['url'], pub['title'])
+                        if full_text and not pub.get('tldr'):
+                            # Re-generate TL;DR with the PDF from manual URL
+                            print(f"  Re-generating TL;DR with PDF from manual URL...")
+                            tldr = generate_tldr_with_gemini(pub['title'], full_text, gemini_model, is_full_paper=True)
+                            pub['tldr'] = tldr
+                            time.sleep(0.5)
+
+        # Apply manual abstracts and generate TL;DRs
+        if publications and manual_abstracts:
+            print("\nApplying manual abstracts...")
+            tldr_count = 0
+            for pub in publications:
+                if pub['title'] in manual_abstracts:
+                    # Add abstract if not already present
+                    if not pub.get('abstract'):
+                        pub['abstract'] = manual_abstracts[pub['title']]
+                        safe_print(f"Applied manual abstract for: {pub['title']}")
+
+                        # Generate TL;DR from manual abstract if we don't have one
+                        if gemini_model and not pub.get('tldr'):
+                            print(f"  Generating TL;DR from manual abstract...")
+                            tldr = generate_tldr_with_gemini(pub['title'], pub['abstract'], gemini_model, is_full_paper=False)
+                            pub['tldr'] = tldr
+                            tldr_count += 1
+                            time.sleep(0.5)
+
+            if tldr_count > 0:
+                print(f"Generated {tldr_count} TL;DRs from manual abstracts")
+
+    # Fallback to scholarly library if SerpAPI not available
+    elif SCHOLARLY_AVAILABLE:
+        print("Trying scholarly library (anti-blocking)...")
+        publications = extract_publications_scholarly(gemini_model=gemini_model)
+
+        # Apply manual URLs
+        if publications and manual_urls:
+            for pub in publications:
+                if pub['title'] in manual_urls:
+                    pub['url'] = manual_urls[pub['title']]
+                    print(f"Applied manual URL for: {pub['title']}")
+
+    # Last resort: try direct scraping (has sortby=pubdate)
     if publications is None:
         print("Trying direct Google Scholar scraping...")
-        publications = extract_publications_simple(gemini_model=gemini_model)
+        publications = extract_publications_simple(fetch_details=True, gemini_model=gemini_model)
 
     # Validation: ensure we got reasonable data
     if publications is None or len(publications) < MIN_PUBLICATIONS:
@@ -583,6 +834,25 @@ def generate_simple_publications():
             by_year[year] = []
         by_year[year].append(pub)
 
+    # Safety check: Ensure we have a reasonable number of publications
+    MINIMUM_PUBLICATIONS = 15
+    if len(publications) < MINIMUM_PUBLICATIONS:
+        error_msg = f"ERROR: Only {len(publications)} publications found (minimum: {MINIMUM_PUBLICATIONS})"
+        print(error_msg)
+        print("This likely indicates an API error or scraping failure.")
+        print("Aborting to prevent data loss. publications.json will not be updated.")
+        sys.exit(1)
+
+    # Safety check: Ensure we have abstracts for most publications
+    MINIMUM_ABSTRACTS = 18
+    publications_with_abstracts = sum(1 for pub in publications if pub.get('abstract'))
+    if publications_with_abstracts < MINIMUM_ABSTRACTS:
+        error_msg = f"ERROR: Only {publications_with_abstracts}/{len(publications)} publications have abstracts (minimum: {MINIMUM_ABSTRACTS})"
+        print(error_msg)
+        print("This likely indicates abstract fetching failure (arXiv API down, manual_abstracts.json missing, etc.).")
+        print("Aborting to prevent data loss. publications.json will not be updated.")
+        sys.exit(1)
+
     # Create result
     result = {
         "last_updated": datetime.now().isoformat(),
@@ -604,6 +874,10 @@ def generate_simple_publications():
     # Write to file
     with open("publications.json", 'w', encoding='utf-8') as f:
         json.dump(result, f, indent=2, ensure_ascii=False)
+
+    print(f"\n✅ Safety checks passed:")
+    print(f"   - Publications: {len(publications)}/{MINIMUM_PUBLICATIONS} minimum")
+    print(f"   - Abstracts: {publications_with_abstracts}/{MINIMUM_ABSTRACTS} minimum")
 
     print(f"\nGenerated publications.json with {len(publications)} publications")
     print(f"Total citations: {total_citations}")
