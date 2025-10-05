@@ -453,12 +453,13 @@ def extract_publications_serpapi(scholar_id="mE9l0sQAAAAJ", api_key=None, gemini
         }
 
         for idx, article in enumerate(articles, 1):
-            # Extract year from publication info
+            # Extract year from publication info (use LAST occurrence to avoid page ranges)
             year = None
             pub_info = article.get("publication", "")
-            year_match = re.search(r'\b(19|20)\d{2}\b', pub_info)
-            if year_match:
-                year = int(year_match.group())
+            year_matches = re.findall(r'\b(?:19|20)\d{2}\b', pub_info)
+            if year_matches:
+                # Use the last year found (publication year is typically at the end)
+                year = int(year_matches[-1])
 
             title = article.get("title", "")
 
@@ -875,7 +876,7 @@ def generate_simple_publications():
     with open("publications.json", 'w', encoding='utf-8') as f:
         json.dump(result, f, indent=2, ensure_ascii=False)
 
-    print(f"\n✅ Safety checks passed:")
+    print(f"\nSafety checks passed:")
     print(f"   - Publications: {len(publications)}/{MINIMUM_PUBLICATIONS} minimum")
     print(f"   - Abstracts: {publications_with_abstracts}/{MINIMUM_ABSTRACTS} minimum")
 
