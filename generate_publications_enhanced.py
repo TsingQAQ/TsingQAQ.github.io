@@ -367,7 +367,7 @@ def generate_enhanced_publications_json():
     # Categorize publications by year
     by_year = {}
     for pub in publications:
-        year = pub['year'] or 'Unknown'
+        year = pub['year'] or 'TBD'
         if year not in by_year:
             by_year[year] = []
         by_year[year].append(pub)

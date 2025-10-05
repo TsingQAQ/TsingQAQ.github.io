@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
 Simple script to extract basic publications from Google Scholar
+with SerpAPI fallback and safety validations
 """
 
 import requests
@@ -9,6 +10,8 @@ import json
 import time
 import re
 from datetime import datetime
+import os
+import sys
 
 def clean_text(text):
     """Clean and normalize text"""
@@ -16,8 +19,130 @@ def clean_text(text):
         return ""
     return re.sub(r'\s+', ' ', text.strip())
 
-def extract_publications_simple(scholar_id="mE9l0sQAAAAJ"):
-    """Extract basic publications from Google Scholar profile"""
+def fetch_abstract_and_url(title_link_href, headers):
+    """Fetch abstract and paper URL from Google Scholar detail page"""
+    pub_url = ""
+    abstract = ""
+
+    if not title_link_href:
+        return pub_url, abstract
+
+    try:
+        detail_url = f"https://scholar.google.com{title_link_href}"
+        time.sleep(3)  # Be polite to Google
+        detail_response = requests.get(detail_url, headers=headers, timeout=30)
+        detail_soup = BeautifulSoup(detail_response.content, 'html.parser')
+
+        # Extract URL to actual paper
+        url_links = detail_soup.find_all('a', href=True)
+        for link in url_links:
+            href = link.get('href', '')
+            if any(domain in href for domain in ['arxiv.org', 'sciencedirect.com', 'springer.com',
+                                               'ieee.org', 'acm.org', 'proceedings.mlr.press',
+                                               'arc.aiaa.org', 'nature.com', 'science.org']):
+                pub_url = href
+                break
+
+        # Extract abstract if available
+        abstract_div = detail_soup.find('div', class_='gsh_small')
+        if abstract_div:
+            abstract = clean_text(abstract_div.text)
+
+    except Exception as e:
+        print(f"  Warning: Could not fetch details: {e}")
+
+    return pub_url, abstract
+
+def extract_publications_serpapi(scholar_id="mE9l0sQAAAAJ", api_key=None):
+    """Extract publications using SerpAPI (more reliable for automation)"""
+    if not api_key:
+        print("No SerpAPI key provided, skipping SerpAPI method")
+        return None
+
+    publications = []
+
+    try:
+        print("Fetching publications via SerpAPI...")
+        url = "https://serpapi.com/search"
+        params = {
+            "engine": "google_scholar_author",
+            "author_id": scholar_id,
+            "api_key": api_key,
+            "num": 100
+        }
+
+        response = requests.get(url, params=params)
+        response.raise_for_status()
+        data = response.json()
+
+        articles = data.get("articles", [])
+        print(f"Found {len(articles)} publications via SerpAPI")
+
+        # Set up headers for detail fetching
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+        }
+
+        for idx, article in enumerate(articles, 1):
+            # Extract year from publication info
+            year = None
+            pub_info = article.get("publication", "")
+            year_match = re.search(r'\b(19|20)\d{2}\b', pub_info)
+            if year_match:
+                year = int(year_match.group())
+
+            title = article.get("title", "")
+
+            # Get the citation link to fetch abstract/URL
+            citation_id = article.get("citation_id", "")
+            pub_url = article.get("link", "")
+            abstract = ""
+
+            # Try to get abstract and better URL from detail page
+            if citation_id:
+                detail_link = f"/citations?view_op=view_citation&citation_for_view={scholar_id}:{citation_id}"
+                fetched_url, fetched_abstract = fetch_abstract_and_url(detail_link, headers)
+                if fetched_url:
+                    pub_url = fetched_url
+                if fetched_abstract:
+                    abstract = fetched_abstract
+
+            has_abstract = 'Yes' if abstract else 'No'
+            has_url = 'Yes' if pub_url else 'No'
+            print(f"[{idx}/{len(articles)}] {title} ({year}) - Abstract: {has_abstract}, URL: {has_url}")
+
+            # Create publication object
+            pub_id = re.sub(r'[^a-z0-9_]', '_', title.lower().replace(' ', '_'))[:50]
+            if year:
+                pub_id += f"_{year}"
+
+            publication = {
+                "id": pub_id,
+                "title": title,
+                "authors": article.get("authors", ""),
+                "year": year,
+                "venue": pub_info,
+                "abstract": abstract,
+                "url": pub_url,
+                "citations": article.get("cited_by", {}).get("value", 0),
+                "filled_manually": False,
+                "media": None,
+                "custom_description": None,
+                "links": [],
+                "tags": [],
+                "featured": False
+            }
+
+            publications.append(publication)
+
+        return publications
+
+    except Exception as e:
+        print(f"Error fetching from SerpAPI: {e}")
+        return None
+
+def extract_publications_simple(scholar_id="mE9l0sQAAAAJ", fetch_details=True):
+    """Extract publications from Google Scholar profile with optional detail fetching"""
     publications = []
     base_url = "https://scholar.google.com/citations"
 
@@ -29,14 +154,18 @@ def extract_publications_simple(scholar_id="mE9l0sQAAAAJ"):
     print(f"Fetching: {url}")
 
     try:
-        response = requests.get(url, headers=headers)
+        response = requests.get(url, headers=headers, timeout=30)
         response.raise_for_status()
         soup = BeautifulSoup(response.content, 'html.parser')
 
         pub_rows = soup.find_all('tr', class_='gsc_a_tr')
         print(f"Found {len(pub_rows)} publications")
 
-        for row in pub_rows:
+        if len(pub_rows) == 0:
+            print("WARNING: No publications found - possible blocking or rate limiting")
+            return None
+
+        for idx, row in enumerate(pub_rows, 1):
             try:
                 # Extract title
                 title_cell = row.find('td', class_='gsc_a_t')
@@ -78,7 +207,20 @@ def extract_publications_simple(scholar_id="mE9l0sQAAAAJ"):
                         except ValueError:
                             citations = 0
 
-                # Create publication object with basic info only
+                # Get publication link for detail fetching
+                pub_url = ""
+                abstract = ""
+
+                if fetch_details and title_link:
+                    pub_link = title_link.get('href')
+                    if pub_link:
+                        pub_url, abstract = fetch_abstract_and_url(pub_link, headers)
+
+                has_abstract = 'Yes' if abstract else 'No'
+                has_url = 'Yes' if pub_url else 'No'
+                print(f"[{idx}/{len(pub_rows)}] {title} ({year}) - Abstract: {has_abstract}, URL: {has_url}")
+
+                # Create publication object
                 pub_id = re.sub(r'[^a-z0-9_]', '_', title.lower().replace(' ', '_'))[:50]
                 if year:
                     pub_id += f"_{year}"
@@ -89,8 +231,8 @@ def extract_publications_simple(scholar_id="mE9l0sQAAAAJ"):
                     "authors": authors,
                     "year": year,
                     "venue": venue,
-                    "abstract": "",  # Skip abstract for speed
-                    "url": "",       # Skip URL for speed
+                    "abstract": abstract,
+                    "url": pub_url,
                     "citations": citations,
                     "filled_manually": False,
                     "media": None,
@@ -101,7 +243,6 @@ def extract_publications_simple(scholar_id="mE9l0sQAAAAJ"):
                 }
 
                 publications.append(publication)
-                print(f"Added: {title} ({year})")
 
             except Exception as e:
                 print(f"Error processing publication: {e}")
@@ -109,14 +250,55 @@ def extract_publications_simple(scholar_id="mE9l0sQAAAAJ"):
 
     except Exception as e:
         print(f"Error fetching publications: {e}")
+        return None
 
-    return publications
+    return publications if len(publications) > 0 else None
 
 def generate_simple_publications():
-    """Generate basic publications.json"""
+    """Generate basic publications.json with safety checks"""
     print("Extracting basic publications from Google Scholar...")
 
-    publications = extract_publications_simple()
+    # Minimum threshold to prevent data loss
+    MIN_PUBLICATIONS = 15
+
+    # Check for existing publications.json for validation
+    existing_count = 0
+    if os.path.exists("publications.json"):
+        try:
+            with open("publications.json", 'r', encoding='utf-8') as f:
+                existing_data = json.load(f)
+                existing_count = existing_data.get("total_publications", 0)
+                print(f"Existing publications.json has {existing_count} publications")
+        except Exception as e:
+            print(f"Warning: Could not read existing publications.json: {e}")
+
+    # Try SerpAPI first (more reliable for automation)
+    serpapi_key = os.environ.get("SERPAPI_KEY")
+    publications = None
+
+    if serpapi_key:
+        print("Trying SerpAPI method...")
+        publications = extract_publications_serpapi(api_key=serpapi_key)
+
+    # Fallback to direct scraping if SerpAPI fails or not available
+    if publications is None:
+        print("Trying direct Google Scholar scraping...")
+        publications = extract_publications_simple()
+
+    # Validation: ensure we got reasonable data
+    if publications is None or len(publications) < MIN_PUBLICATIONS:
+        print(f"\nERROR: Only {len(publications) if publications else 0} publications found (minimum: {MIN_PUBLICATIONS})")
+        print("This likely means scraping failed or Google Scholar is blocking requests.")
+
+        if existing_count > 0:
+            print(f"Keeping existing publications.json with {existing_count} publications")
+            print("Not overwriting to prevent data loss!")
+            sys.exit(1)  # Exit with error to prevent commit
+        else:
+            print("No existing data to preserve. Creating file anyway.")
+            publications = publications or []
+    else:
+        print(f"Successfully fetched {len(publications)} publications")
 
     # Calculate statistics
     total_citations = sum(pub['citations'] for pub in publications)
@@ -136,7 +318,7 @@ def generate_simple_publications():
     # Categorize by year
     by_year = {}
     for pub in publications:
-        year = pub['year'] or 'Unknown'
+        year = pub['year'] or 'TBD'
         if year not in by_year:
             by_year[year] = []
         by_year[year].append(pub)
