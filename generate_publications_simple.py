@@ -264,7 +264,8 @@ def extract_publications_serpapi(scholar_id="mE9l0sQAAAAJ", api_key=None, gemini
             "engine": "google_scholar_author",
             "author_id": scholar_id,
             "api_key": api_key,
-            "num": 100
+            "num": 100,
+            "sort": "pubdate"  # Sort by publication date, not citations
         }
 
         response = requests.get(url, params=params)
