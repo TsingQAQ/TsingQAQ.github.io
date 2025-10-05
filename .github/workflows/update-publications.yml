@@ -27,7 +27,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install requests beautifulsoup4
+        pip install requests beautifulsoup4 google-generativeai PyPDF2
 
     - name: Create backup of current publications
       run: |
@@ -36,8 +36,9 @@ jobs:
     - name: Generate publications from Google Scholar
       env:
         SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       run: |
-        echo "Running simple publication update script..."
+        echo "Running publication update script with TL;DR generation..."
         python generate_publications_simple.py
 
     - name: Validate JSON output
@@ -75,6 +76,8 @@ jobs:
         git commit -m "🤖 Auto-update publications.json - $(date '+%Y-%m-%d %H:%M UTC')
 
         - Updated from Google Scholar data via SerpAPI
+        - TL;DR generated via Gemini API (from full PDF if available, otherwise abstract)
+        - Supports arXiv, OpenReview, and other open access sources
         - Safety checks passed (minimum 15 publications)
         - Manual URLs preserved from manual_urls.json"
 
