@@ -80,6 +80,11 @@
             <!-- Main Highlights -->
             <div id="main-highlights">
                 <div class="list-item highlight" data-category="highlight">
+                    <p class="date">2026</p>
+                    <i class="fas fa-bullhorn news-icon"></i> Our paper "<a href="https://arxiv.org/abs/2503.05642" target="_blank">BoGrape: Bayesian optimization over graphs with shortest-path encoded</a>" has been accepted at ICLR 2026!
+                </div>
+
+                <div class="list-item highlight" data-category="highlight">
                     <p class="date">2025</p>
                     <i class="fas fa-bullhorn news-icon"></i> I am honored to be invited to participate in the <a href="https://www.dagstuhl.de/en/seminars/seminar-calendar/seminar-details/25451" target="_blank" onclick="gtag('event', 'conference_click', {'event_category': 'Conferences', 'event_label': 'Dagstuhl_Seminar_BO'});">Dagstuhl Seminar: "Bayesian Optimisation"</a>
                 </div>
@@ -631,8 +636,8 @@
                     break-inside: avoid !important;
                     position: relative !important;
                     float: none !important;
-                    background: rgba(0,0,0,0.02);
-                    border-radius: 8px;
+                    background: transparent;
+                    border-radius: 0;
                     box-sizing: border-box !important;
                 }
                 .list-item.highlight {
@@ -1119,6 +1124,32 @@
                     color: #007bff;
                     margin-right: 8px;
                     font-size: 1em;
+                }
+
+                /* Announcement banner styling */
+                .announcement-banner {
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    color: white;
+                    padding: 10px 15px;
+                    border-radius: 6px;
+                    margin-bottom: 15px;
+                    font-size: 0.95em;
+                    font-weight: 500;
+                    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+                }
+
+                .announcement-banner i {
+                    margin-right: 8px;
+                }
+
+                .announcement-banner a {
+                    color: #fff;
+                    text-decoration: underline;
+                    font-weight: 600;
+                }
+
+                .announcement-banner a:hover {
+                    color: #e0e0e0;
                 }
 
                 /* Fix MISC section alignment */
