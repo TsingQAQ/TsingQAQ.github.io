@@ -51,6 +51,9 @@ table {
   font-size: 1em;
   line-height: 1.5em;
   color: #150c21;
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 
 #main {
@@ -63,11 +66,13 @@ table {
 a {
   text-decoration: none;
   color: rgb(20, 110, 190);
+  transition: color 0.2s ease, border-bottom 0.2s ease, opacity 0.2s ease;
 }
 
 a:hover {
   text-decoration: none;
   border-bottom: 1px solid rgb(20, 110, 190);
+  opacity: 0.85;
 }
 
 i {
@@ -108,6 +113,14 @@ h1 {
 
 #intro-image img {
   width: 12em;
+  border-radius: 1em;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#intro-image img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
 }
 
 /**************************************************/
@@ -145,10 +158,12 @@ h2 {
   margin-right: 1em;
   float: left;
   padding: 0;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .button:hover {
   color: #150c21;
+  transform: translateY(-1px);
 }
 
 .button:active,
