@@ -212,14 +212,13 @@ def get_full_text_if_available(url, title):
 
     return None, False
 
-def generate_tldr_with_gemini(title, text, gemini_model=None, is_full_paper=False):
-    """Generate TL;DR using Gemini API"""
+def generate_tldr_with_gemini(title, text, gemini_model=None, is_full_paper=False, max_retries=3):
+    """Generate TL;DR using Gemini API with retry logic for rate limits"""
     if not gemini_model or not text:
         return ""
 
-    try:
-        if is_full_paper:
-            prompt = f"""Please create a concise TL;DR (strictly less than 100 words, ideally 50-80 words) for this research paper.
+    if is_full_paper:
+        prompt = f"""Please create a concise TL;DR (strictly less than 100 words, ideally 50-80 words) for this research paper.
 Focus on the main contribution, method, and key findings. Be specific and technical.
 Keep it brief and to the point.
 
@@ -228,8 +227,8 @@ Title: {title}
 Paper content (first ~15k characters): {text}
 
 TL;DR:"""
-        else:
-            prompt = f"""Please create a concise TL;DR (strictly less than 100 words, ideally 50-80 words) for this research paper.
+    else:
+        prompt = f"""Please create a concise TL;DR (strictly less than 100 words, ideally 50-80 words) for this research paper.
 Focus on the main contribution and key findings. Be specific and technical.
 Keep it brief and to the point.
 
@@ -239,17 +238,32 @@ Abstract: {text}
 
 TL;DR:"""
 
-        response = gemini_model.generate_content(prompt)
-        tldr = response.text.strip()
+    for attempt in range(max_retries):
+        try:
+            response = gemini_model.generate_content(prompt)
+            tldr = response.text.strip()
 
-        # Remove common prefixes if Gemini adds them
-        tldr = re.sub(r'^(TL;?DR:?\s*|Summary:?\s*)', '', tldr, flags=re.IGNORECASE)
+            # Remove common prefixes if Gemini adds them
+            tldr = re.sub(r'^(TL;?DR:?\s*|Summary:?\s*)', '', tldr, flags=re.IGNORECASE)
 
-        return tldr
+            return tldr
 
-    except Exception as e:
-        print(f"  Warning: Gemini TL;DR generation failed: {e}")
-        return ""
+        except Exception as e:
+            error_str = str(e)
+            if '429' in error_str and attempt < max_retries - 1:
+                # Extract retry delay from error message if available
+                retry_match = re.search(r'retry in ([\d.]+)s', error_str, re.IGNORECASE)
+                if retry_match:
+                    wait_time = float(retry_match.group(1)) + 5  # Add 5s buffer
+                else:
+                    wait_time = 60  # Default: wait 60s for free tier (5 req/min)
+                print(f"  Rate limited (attempt {attempt + 1}/{max_retries}), waiting {wait_time:.0f}s...")
+                time.sleep(wait_time)
+            else:
+                print(f"  Warning: Gemini TL;DR generation failed: {e}")
+                return ""
+
+    return ""
 
 def fetch_abstract_and_url(title_link_href, headers):
     """Fetch abstract and paper URL from Google Scholar detail page"""
@@ -360,12 +374,12 @@ def extract_publications_scholarly(scholar_id="mE9l0sQAAAAJ", gemini_model=None)
                         print(f"  [{idx}/{len(pubs)}] Generating TL;DR from full paper PDF")
                         tldr = generate_tldr_with_gemini(title, full_text, gemini_model, is_full_paper=True)
                         tldr_source = "full_paper"
-                        time.sleep(0.5)
+                        time.sleep(5)  # Gemini 2.0-flash free tier: 15 req/min
                     elif abstract:
                         print(f"  [{idx}/{len(pubs)}] Generating TL;DR from abstract")
                         tldr = generate_tldr_with_gemini(title, abstract, gemini_model, is_full_paper=False)
                         tldr_source = "abstract"
-                        time.sleep(0.5)
+                        time.sleep(5)  # Gemini 2.0-flash free tier: 15 req/min
 
                 has_abstract = 'Yes' if abstract else 'No'
                 has_url = 'Yes' if pub_url else 'No'
@@ -398,11 +412,9 @@ def extract_publications_scholarly(scholar_id="mE9l0sQAAAAJ", gemini_model=None)
 
                 publications.append(publication)
 
-                # Rate limiting to be polite (reduced when not generating TL;DRs)
-                if gemini_model:
-                    time.sleep(1)  # Shorter delay since Gemini calls have delays
-                else:
-                    time.sleep(0.5)  # Very short delay when just fetching abstracts
+                # Rate limiting to be polite
+                if not gemini_model:
+                    time.sleep(0.5)
 
             except Exception as e:
                 print(f"  Error processing publication: {e}")
@@ -485,12 +497,12 @@ def extract_publications_serpapi(scholar_id="mE9l0sQAAAAJ", api_key=None, gemini
                     print(f"  [{idx}/{len(articles)}] Generating TL;DR from full paper PDF")
                     tldr = generate_tldr_with_gemini(title, full_text, gemini_model, is_full_paper=True)
                     tldr_source = "full_paper"
-                    time.sleep(0.5)
+                    time.sleep(5)  # Gemini 2.0-flash free tier: 15 req/min
                 elif abstract:
                     print(f"  [{idx}/{len(articles)}] Generating TL;DR from abstract")
                     tldr = generate_tldr_with_gemini(title, abstract, gemini_model, is_full_paper=False)
                     tldr_source = "abstract"
-                    time.sleep(0.5)
+                    time.sleep(5)  # Gemini 2.0-flash free tier: 15 req/min
 
             has_abstract = 'Yes' if abstract else 'No'
             has_url = 'Yes' if pub_url else 'No'
@@ -626,12 +638,12 @@ def extract_publications_simple(scholar_id="mE9l0sQAAAAJ", fetch_details=True, g
                         print(f"  [{idx}/{len(pub_rows)}] Generating TL;DR from full paper PDF")
                         tldr = generate_tldr_with_gemini(title, full_text, gemini_model, is_full_paper=True)
                         tldr_source = "full_paper"
-                        time.sleep(0.5)
+                        time.sleep(5)  # Gemini 2.0-flash free tier: 15 req/min
                     elif abstract:
                         print(f"  [{idx}/{len(pub_rows)}] Generating TL;DR from abstract")
                         tldr = generate_tldr_with_gemini(title, abstract, gemini_model, is_full_paper=False)
                         tldr_source = "abstract"
-                        time.sleep(0.5)
+                        time.sleep(5)  # Gemini 2.0-flash free tier: 15 req/min
 
                 has_abstract = 'Yes' if abstract else 'No'
                 has_url = 'Yes' if pub_url else 'No'
@@ -681,13 +693,16 @@ def generate_simple_publications():
     # Minimum threshold to prevent data loss
     MIN_PUBLICATIONS = 15
 
-    # Check for existing publications.json for validation
+    # Load existing publications.json to carry forward abstracts/TL;DRs
     existing_count = 0
+    existing_pubs_by_title = {}  # title -> pub data (case-insensitive)
     if os.path.exists("publications.json"):
         try:
             with open("publications.json", 'r', encoding='utf-8') as f:
                 existing_data = json.load(f)
                 existing_count = existing_data.get("total_publications", 0)
+                for pub in existing_data.get("publications", []):
+                    existing_pubs_by_title[pub['title'].lower()] = pub
                 print(f"Existing publications.json has {existing_count} publications")
         except Exception as e:
             print(f"Warning: Could not read existing publications.json: {e}")
@@ -742,10 +757,12 @@ def generate_simple_publications():
         # Apply manual URLs to get more abstracts/PDFs from OpenReview, etc.
         if publications and manual_urls:
             print("\nApplying manual URLs...")
+            manual_urls_lower = {k.lower(): v for k, v in manual_urls.items()}
             for pub in publications:
-                if pub['title'] in manual_urls:
+                matched_url = manual_urls.get(pub['title']) or manual_urls_lower.get(pub['title'].lower())
+                if matched_url:
                     old_url = pub.get('url', '')
-                    pub['url'] = manual_urls[pub['title']]
+                    pub['url'] = matched_url
                     print(f"Applied manual URL for: {pub['title']}")
 
                     # Try to fetch abstract/PDF from the manual URL if we don't have it
@@ -756,17 +773,20 @@ def generate_simple_publications():
                             print(f"  Re-generating TL;DR with PDF from manual URL...")
                             tldr = generate_tldr_with_gemini(pub['title'], full_text, gemini_model, is_full_paper=True)
                             pub['tldr'] = tldr
-                            time.sleep(0.5)
+                            time.sleep(5)  # Gemini 2.0-flash free tier: 15 req/min
 
         # Apply manual abstracts and generate TL;DRs
         if publications and manual_abstracts:
             print("\nApplying manual abstracts...")
+            # Build case-insensitive lookup for manual abstracts
+            manual_abstracts_lower = {k.lower(): v for k, v in manual_abstracts.items()}
             tldr_count = 0
             for pub in publications:
-                if pub['title'] in manual_abstracts:
+                matched_abstract = manual_abstracts.get(pub['title']) or manual_abstracts_lower.get(pub['title'].lower())
+                if matched_abstract is not None:
                     # Add abstract if not already present
-                    if not pub.get('abstract'):
-                        pub['abstract'] = manual_abstracts[pub['title']]
+                    if not pub.get('abstract') and matched_abstract:
+                        pub['abstract'] = matched_abstract
                         safe_print(f"Applied manual abstract for: {pub['title']}")
 
                         # Generate TL;DR from manual abstract if we don't have one
@@ -775,7 +795,7 @@ def generate_simple_publications():
                             tldr = generate_tldr_with_gemini(pub['title'], pub['abstract'], gemini_model, is_full_paper=False)
                             pub['tldr'] = tldr
                             tldr_count += 1
-                            time.sleep(0.5)
+                            time.sleep(5)  # Gemini 2.0-flash free tier: 15 req/min
 
             if tldr_count > 0:
                 print(f"Generated {tldr_count} TL;DRs from manual abstracts")
@@ -796,6 +816,23 @@ def generate_simple_publications():
     if publications is None:
         print("Trying direct Google Scholar scraping...")
         publications = extract_publications_simple(fetch_details=True, gemini_model=gemini_model)
+
+    # Carry forward abstracts, TL;DRs, and URLs from previous publications.json
+    # This ensures new papers don't cause data loss for existing ones
+    if publications and existing_pubs_by_title:
+        carried_count = 0
+        for pub in publications:
+            existing = existing_pubs_by_title.get(pub['title'].lower())
+            if existing:
+                if not pub.get('abstract') and existing.get('abstract'):
+                    pub['abstract'] = existing['abstract']
+                    carried_count += 1
+                if not pub.get('tldr') and existing.get('tldr'):
+                    pub['tldr'] = existing['tldr']
+                if not pub.get('url') and existing.get('url'):
+                    pub['url'] = existing['url']
+        if carried_count > 0:
+            print(f"\nCarried forward {carried_count} abstracts from previous publications.json")
 
     # Validation: ensure we got reasonable data
     if publications is None or len(publications) < MIN_PUBLICATIONS:
@@ -844,11 +881,12 @@ def generate_simple_publications():
         print("Aborting to prevent data loss. publications.json will not be updated.")
         sys.exit(1)
 
-    # Safety check: Ensure we have abstracts for most publications
-    MINIMUM_ABSTRACTS = 18
+    # Safety check: Ensure we have abstracts for most publications (at least 60%)
+    MINIMUM_ABSTRACT_RATIO = 0.6
     publications_with_abstracts = sum(1 for pub in publications if pub.get('abstract'))
-    if publications_with_abstracts < MINIMUM_ABSTRACTS:
-        error_msg = f"ERROR: Only {publications_with_abstracts}/{len(publications)} publications have abstracts (minimum: {MINIMUM_ABSTRACTS})"
+    min_abstracts_needed = int(len(publications) * MINIMUM_ABSTRACT_RATIO)
+    if publications_with_abstracts < min_abstracts_needed:
+        error_msg = f"ERROR: Only {publications_with_abstracts}/{len(publications)} publications have abstracts ({publications_with_abstracts/len(publications)*100:.0f}%, minimum: {MINIMUM_ABSTRACT_RATIO*100:.0f}%)"
         print(error_msg)
         print("This likely indicates abstract fetching failure (arXiv API down, manual_abstracts.json missing, etc.).")
         print("Aborting to prevent data loss. publications.json will not be updated.")
@@ -878,7 +916,7 @@ def generate_simple_publications():
 
     print(f"\nSafety checks passed:")
     print(f"   - Publications: {len(publications)}/{MINIMUM_PUBLICATIONS} minimum")
-    print(f"   - Abstracts: {publications_with_abstracts}/{MINIMUM_ABSTRACTS} minimum")
+    print(f"   - Abstracts: {publications_with_abstracts}/{len(publications)} ({publications_with_abstracts/len(publications)*100:.0f}%, minimum: {MINIMUM_ABSTRACT_RATIO*100:.0f}%)")
 
     print(f"\nGenerated publications.json with {len(publications)} publications")
     print(f"Total citations: {total_citations}")
